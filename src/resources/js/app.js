@@ -8,9 +8,9 @@ import store from "./Store/index";
 import App from './App.vue'
 
 //Import bootstrap
-import 'bootstrap'; // Import js file
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import css file
-import 'bootstrap/dist/css/bootstrap-utilities.min.css'; // Import css file
+// import 'bootstrap'; // Import js file
+// import 'bootstrap/dist/css/bootstrap.min.css'; // Import css file
+// import 'bootstrap/dist/css/bootstrap-utilities.min.css'; // Import css file
 
 //Import aos
 import AOS from 'aos';

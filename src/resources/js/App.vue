@@ -8,6 +8,7 @@
 <script>
 import './Styles/app.scss'
 
+
 export default {
     name: 'app',
     components: {
