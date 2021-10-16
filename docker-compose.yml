@@ -76,6 +76,13 @@ services:
     networks:
       - laravel
 
+  composer_installation:
+    container_name: composer_installation
+    image: composer
+    volumes:
+      - ./src:/var/www/html
+    command: composer install --ignore-platform-reqs
+
   npm:
     image: node:12.19
     container_name: npm
@@ -112,3 +119,4 @@ services:
       - 8025:8025
     networks:
       - laravel
+      
