@@ -60,12 +60,14 @@ services:
       - laravel
 
   composer:
+    image: composer:latest
     build:
       context: .
       dockerfile: composer.dockerfile
     container_name: composer
     volumes:
       - ./src:/var/www/html
+      - /var/www/html/vendor
     working_dir: /var/www/html
     depends_on:
       - php
