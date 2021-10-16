@@ -13,7 +13,8 @@ services:
       - 80:80
     volumes:
       - ./src:/var/www/html:delegated
-    env_file: '.env.prod'
+    env_file:
+      - ./src/.env.prod
     depends_on:
       - php
       - redis
