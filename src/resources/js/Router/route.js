@@ -14,6 +14,11 @@ const routes = [
         component: () => import('../Pages/Recorder.vue'),
         name: 'recorder'
     },
+    {
+        path: '/index',
+        component: () => import('../Pages/Index.vue'),
+        name: 'index'
+    },
 ]
 
 export  default routes;

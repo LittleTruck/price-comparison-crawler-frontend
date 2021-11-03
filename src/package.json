@@ -22,6 +22,7 @@
     "dependencies": {
         "@popperjs/core": "^2.9.2",
         "aos": "^2.3.4",
+        "boxicons": "^2.0.9",
         "css-loader": "^5.2.6",
         "file-loader": "^6.2.0",
         "jquery": "^3.6.0",

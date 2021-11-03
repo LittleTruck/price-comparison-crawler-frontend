@@ -1927,6 +1927,12 @@ var routes = [{
     return __webpack_require__.e(/*! import() */ "resources_js_Pages_Recorder_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Recorder.vue */ "./resources/js/Pages/Recorder.vue"));
   },
   name: 'recorder'
+}, {
+  path: '/index',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_Pages_Index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Index.vue */ "./resources/js/Pages/Index.vue"));
+  },
+  name: 'index'
 }];
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (routes);
 
@@ -2056,7 +2062,7 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Alata&display=swap);"]);
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "body, html, #app, .app {\n  padding: 0;\n  margin: 0;\n  font-family: 'Alata','Noto Sans TC';\n  background-color: #e6e6e6;\n  text-align: center; }\n\nh1 {\n  font-size: 10em; }\n\n.navBar {\n  padding: 5px;\n  background-color: #FFF; }\n  .navBar_link {\n    display: flex;\n    margin: 0; }\n    .navBar_link li {\n      margin: 10px;\n      list-style-type: none;\n      font-size: 17px; }\n      .navBar_link li a {\n        text-decoration: none;\n        color: #555555; }\n\n.about {\n  color: green; }\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@media (max-width: 639px) {\n  html, body {\n    font-size: 12px; } }\n\n@media (min-width: 640px) and (max-width: 767px) {\n  html, body {\n    font-size: 14px; } }\n\n@media (min-width: 768px) and (max-width: 1023px) {\n  html, body {\n    font-size: 14px; } }\n\n@media (min-width: 1024px) and (max-width: 1279px) {\n  html, body {\n    font-size: 15px; } }\n\n@media (min-width: 1280px) and (max-width: 1535px) {\n  html, body {\n    font-size: 15px; } }\n\n@media (min-width: 1536px) {\n  html, body {\n    font-size: 18px; } }\n\n.mobile {\n  display: none; }\n  @media (max-width: 639px) {\n    .mobile {\n      display: block; } }\n\n@media (max-width: 639px) {\n  .desktop {\n    display: none; } }\n\nbody, html, #app, .app {\n  padding: 0;\n  margin: 0;\n  font-family: 'Alata','Noto Sans TC';\n  background-color: #e6e6e6;\n  text-align: center; }\n\nh1 {\n  font-size: 10em; }\n\n.navBar {\n  padding: 5px;\n  background-color: #FFF; }\n  .navBar_link {\n    display: flex;\n    margin: 0; }\n    .navBar_link li {\n      margin: 10px;\n      list-style-type: none;\n      font-size: 17px; }\n      .navBar_link li a {\n        text-decoration: none;\n        color: #555555; }\n\n.about {\n  color: green; }\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -36712,7 +36718,7 @@ var index = {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_Pages_Home_vue":1,"resources_js_Pages_About_vue":1,"resources_js_Pages_Recorder_vue":1,"resources_js_Components_Navbar_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_Pages_Home_vue":1,"resources_js_Pages_About_vue":1,"resources_js_Pages_Recorder_vue":1,"resources_js_Pages_Index_vue":1,"resources_js_Components_Navbar_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

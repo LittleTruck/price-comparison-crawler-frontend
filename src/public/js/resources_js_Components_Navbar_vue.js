@@ -21,6 +21,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Navbar"
 });
@@ -132,6 +133,12 @@ var render = function() {
             _vm._v("Recorder")
           ])
         ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "li",
+        [_c("router-link", { attrs: { to: "/index" } }, [_vm._v("Index")])],
         1
       )
     ])
