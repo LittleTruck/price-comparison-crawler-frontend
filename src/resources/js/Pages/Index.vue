@@ -3,8 +3,9 @@
         <div class="desktop">
             <div class="skew-bg flex">
                 <div class="w-2/3 relative">
-                    <span style="top:50%;left:50%;transform: translate(-50%,-50%);background-color: #646464"
-                          class="absolute w-96 h-96 rounded-full z-20"></span>
+<!--                    <img src="../assets/image/000001_1478099103.jpg" alt="">-->
+                    <router-link to="/recorder"><span style="top:50%;left:50%;transform: translate(-50%,-50%);background-color: #646464"
+                                                        class="absolute w-96 h-96 rounded-full z-20"></span></router-link>
                     <span style="top:52%;left:52%;transform: translate(-50%,-50%);"
                           class="absolute w-96 h-96 rounded-full bg-gray-300 z-10"></span>
                 </div>
@@ -29,8 +30,10 @@
         <div class="mobile relative">
             <div class="skew-bg-mobile"></div>
             <div style="height: 70vh" class="absolute top-0 left-0 w-full">
+
+                <label>
                 <span style="top:50%;left:50%;transform: translate(-50%,-50%);background-color: #646464"
-                          class="absolute w-96 h-96 rounded-full z-20"></span>
+                          class="absolute w-96 h-96 rounded-full z-20"><input style="display:none;" ref="file" type="file" accept="image/*" capture="user" @change="previewImg"></span></label>
                 <span style="top:52%;left:52%;transform: translate(-50%,-50%);"
                       class="absolute w-96 h-96 rounded-full bg-gray-300 z-10"></span>
             </div>
@@ -62,7 +65,21 @@
 import 'boxicons'
 
 export default {
-    name: "Index"
+    name: "Index",
+
+    methods: {
+        previewImg: function(event) {
+            const input = event.target;
+            if (input.files) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    this.preview = e.target.result;
+                }
+                this.image=input.files[0];
+                reader.readAsDataURL(input.files[0]);
+            }
+        },
+    }
 }
 </script>
 
