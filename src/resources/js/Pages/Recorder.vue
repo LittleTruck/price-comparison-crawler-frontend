@@ -1,19 +1,19 @@
 ﻿<template>
     <div>
         <div class="del-h1">
-            <input ref="file" type="file" accept="image/*" capture="user" @change="previewImg">
+            <div>
+<!--                <butoon class="btn-default" @click="callCamera">Capture</butoon>-->
+                <video ref="video" width="640" height="480" autoplay></video>
+                <button class="btn-default" @click="photograph">Confirm</button>
+                <canvas ref="canvas" width="640" height="480"></canvas>
+            </div>
             <template v-if="preview">
                 <img :src="preview"  alt=""/>
                 <p>file name: {{ image.name }}</p>
                 <p>size: {{ image.size/1024 }}KB</p>
             </template>
+            <input ref="file" type="file" accept="image/*" capture="user" @change="previewImg">
             <butoon class="btn-default" @click="imgUpload">Upload</butoon>
-            <div>
-                <butoon class="btn-default" @click="callCamera">Capture</butoon>
-                <video ref="video" width="640" height="480" autoplay></video>
-                <button class="btn-default" @click="photograph">Confirm</button>
-                <canvas ref="canvas" width="640" height="480"></canvas>
-            </div>
         </div>
     </div>
 </template>
@@ -36,6 +36,7 @@ export default {
     components: {
     },
     created() {
+        this.callCamera();
     },
     methods: {
         callCamera() {
@@ -94,12 +95,12 @@ export default {
                 // const apiUrl = this.$store.state.apiServerUrl;
                 const url = "http://110digitiri.ap-northeast-1.elasticbeanstalk.com/api/photo";
                 formData.append("file", this.image); //required
+                formData.append("language", 'zh_TW'); //required
                 // this.flag = 1;
                 axios
                     .post(`${url}`, formData)
                     .then(res => {
                         alert(res.data.message);
-                        // console.log(res);
                     })
                     .catch(e => {
                         console.log(e);

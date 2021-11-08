@@ -19,6 +19,11 @@ const routes = [
         component: () => import('../Pages/Index.vue'),
         name: 'index'
     },
+    {
+        path: '/product',
+        component: () => import('../Pages/Product.vue'),
+        name: 'product'
+    },
 ]
 
 export  default routes;

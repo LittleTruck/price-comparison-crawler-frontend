@@ -3,11 +3,11 @@
         <div class="desktop">
             <div class="skew-bg flex">
                 <div class="w-2/3 relative">
-<!--                    <img src="../assets/image/000001_1478099103.jpg" alt="">-->
-                    <router-link to="/recorder"><span style="top:50%;left:50%;transform: translate(-50%,-50%);background-color: #646464"
-                                                        class="absolute w-96 h-96 rounded-full z-20"></span></router-link>
-                    <span style="top:52%;left:52%;transform: translate(-50%,-50%);"
-                          class="absolute w-96 h-96 rounded-full bg-gray-300 z-10"></span>
+                    <router-link to="/recorder"><img src="/images/click.gif" style="max-width: 75%; margin-left: 25%;" alt=""></router-link>
+<!--                    <router-link to="/recorder"><span style="top:50%;left:50%;transform: translate(-50%,-50%);background-color: #646464"-->
+<!--                                                        class="absolute w-96 h-96 rounded-full z-20"></span></router-link>-->
+<!--                    <span style="top:52%;left:52%;transform: translate(-50%,-50%);"-->
+<!--                          class="absolute w-96 h-96 rounded-full bg-gray-300 z-10"></span>-->
                 </div>
                 <div style="top:58%;transform: translateY(-50%)"
                      class="absolute right-0 text-4xl text-right pr-6 leading-relaxed">
