@@ -1,5 +1,5 @@
 ﻿<template>
-
+    <p>{{$store.state.products}}</p>
 </template>
 
 <script>
