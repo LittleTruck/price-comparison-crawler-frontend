@@ -39,6 +39,7 @@
                 <label>
                     <span style="top:50%;left:50%;width:30rem;height:30rem;transform: translate(-50%,-50%);background-color: #646464;"
                             class="absolute rounded-full z-20 p-4 overflow-hidden">
+                        <img src="/images/click.gif" style="max-width: 75%; margin-left: 25%;" alt="">
                         <input style="display:none;" ref="file" type="file" accept="image/*" capture="user" @change="previewImg">
                         <div v-if="preview" class="w-full h-full bg-white rounded-full overflow-hidden flex p-8">
                             <img :src="preview">
@@ -152,7 +153,7 @@ export default {
     height: 100%;
     background: white;
     transform-origin: 100% 0;
-    transform: skewX(-30deg);
+    transform: skewX(-35deg);
 }
 .skew-bg-mobile:before {
     content: '';
