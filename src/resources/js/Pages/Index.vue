@@ -3,7 +3,7 @@
         <div class="desktop">
             <div class="skew-bg flex">
                 <div class="w-2/3 relative">
-                    <router-link to="/recorder"><img src="/images/click.gif" style="max-width: 75%; margin-left: 25%;" alt=""></router-link>
+                    <router-link to="/recorder"><img src="/images/click_to_photo.gif" style="max-width: 65%; margin-left: 25%;" alt=""></router-link>
 <!--                    <router-link to="/recorder"><span style="top:50%;left:50%;transform: translate(-50%,-50%);background-color: #646464"-->
 <!--                                                        class="absolute w-96 h-96 rounded-full z-20"></span></router-link>-->
 <!--                    <span style="top:52%;left:52%;transform: translate(-50%,-50%);"-->
@@ -39,7 +39,7 @@
                 <label>
                     <span style="top:50%;left:50%;width:30rem;height:30rem;transform: translate(-50%,-50%);background-color: #646464;"
                             class="absolute rounded-full z-20 p-4 overflow-hidden">
-                        <img src="/images/click.gif" style="max-width: 75%; margin-left: 25%;" alt="">
+                        <img src="/images/click_to_photo.gif" style="max-width: 75%; margin-left: 25%;" alt="">
                         <input style="display:none;" ref="file" type="file" accept="image/*" capture="user" @change="previewImg">
                         <div v-if="preview" class="w-full h-full bg-white rounded-full overflow-hidden flex p-8">
                             <img :src="preview">

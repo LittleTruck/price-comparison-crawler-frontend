@@ -101,7 +101,7 @@ export default {
                     .post(`${url}`, formData)
                     .then(res => {
                         this.$store.commit("SET_PRODUCT", res.data)
-                        alert(res.data.message);
+                        // alert(res.data.message);
                         this.$router.push("/product");
                     })
                     .catch(e => {
