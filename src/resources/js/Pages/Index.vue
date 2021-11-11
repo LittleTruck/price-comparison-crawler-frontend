@@ -37,22 +37,24 @@
 <!--                    <p>size: {{ image.size/1024 }}KB</p>-->
 <!--                </template>-->
                 <label>
-                    <span style="top:50%;left:50%;width:30rem;height:30rem;transform: translate(-50%,-50%);background-color: #646464;"
-                            class="absolute rounded-full z-20 p-4 overflow-hidden">
-                        <img src="/images/click_to_photo.gif" style="max-width: 75%; margin-left: 25%;" alt="">
-                        <input style="display:none;" ref="file" type="file" accept="image/*" capture="user" @change="previewImg">
+                    <img v-if="!preview" src="/images/click_to_photo.gif" class="w-full p-6 absolute left-14 top-14" alt="">
+                    <span v-else style="top:50%;left:50%;width:26rem;height:26rem;transform: translate(-50%,-50%);background-color: #646464;"
+                          class="absolute rounded-full z-10 p-4 overflow-hidden">
                         <div v-if="preview" class="w-full h-full bg-white rounded-full overflow-hidden flex p-8">
+                            <input class="w-full h-full" ref="file" type="file" accept="image/*" capture="user" @change="previewImg"/>
                             <img :src="preview">
                         </div>
-                        <span v-if="preview" style="background-color: rgba(0,0,0,.6)"
-                            class="absolute w-full h-32 flex justify-center items-center bottom-0 left-0 text-white text-2xl z-10">
+                        <button @click="console.log('123')" v-if="preview" style="background-color: rgba(0,0,0,.6)"
+                              class="absolute w-full h-32 flex justify-center items-center bottom-0 left-0 text-white text-2xl z-10 hover:-translate-y-1">
                             UPLOAD <box-icon class="ml-2 w-8 h-8" name='upload' color="white"></box-icon>
-                        </span>
+                        </button>
                      </span>
 
+                    <input v-if="!preview" style="left: 50%;top: 50%; transform: translate(-50%,-50%);width: 75%; padding-top: 75%; height: 0"
+                        class="absolute bg-black px-20 rounded-full opacity-0 cursor-pointer z-10" ref="file" type="file" accept="image/*" capture="user" @change="previewImg"/>
                 </label>
-                <span style="top:52%;left:52%;width:30rem;height:30rem;transform: translate(-50%,-50%);"
-                      class="absolute w-96 h-96 rounded-full bg-gray-300 z-10"></span>
+<!--                <span style="top:52%;left:52%;width:30rem;height:30rem;transform: translate(-50%,-50%);"-->
+<!--                      class="absolute w-96 h-96 rounded-full bg-gray-300 z-10"></span>-->
             </div>
             <div style="margin-top: -60%">
                 <div class="absolute right-0 text-5xl text-right pr-12 leading-tight">
@@ -61,7 +63,7 @@
                     <div>keywords</div>
                 </div>
             </div>
-            <div style="margin-top: 50%" class="flex flex-wrap w-full justify-center px-24 pb-32">
+            <div style="margin-top: 50%" class="relative z-50 flex flex-wrap w-full justify-center px-24 pb-32">
                 <input type="text" style="background-color: #C4C4C4"
                        class="block w-full my-8 mt-0 px-8 py-1.5 rounded-full text-2xl leading-loose">
                 <input type="text" style="background-color: #C4C4C4"
