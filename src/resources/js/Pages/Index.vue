@@ -44,7 +44,7 @@
                             <input class="w-full h-full" ref="file" type="file" accept="image/*" capture="user" @change="previewImg"/>
                             <img :src="preview">
                         </div>
-                        <button @click="console.log('123')" v-if="preview" style="background-color: rgba(0,0,0,.6)"
+                        <button @click="imgUpload" v-if="preview" style="background-color: rgba(0,0,0,.6)"
                               class="absolute w-full h-32 flex justify-center items-center bottom-0 left-0 text-white text-2xl z-10 hover:-translate-y-1">
                             UPLOAD <box-icon class="ml-2 w-8 h-8" name='upload' color="white"></box-icon>
                         </button>
@@ -119,7 +119,7 @@ export default {
                     .post(`${url}`, formData)
                     .then(res => {
                         this.$store.commit("SET_PRODUCT", res.data)
-                        alert(res.data.message);
+                        // alert(res.data.message);
                         this.$router.push("/product");
                     })
                     .catch(e => {
