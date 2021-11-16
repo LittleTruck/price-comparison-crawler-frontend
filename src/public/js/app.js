@@ -1933,6 +1933,29 @@ var routes = [{
     return __webpack_require__.e(/*! import() */ "resources_js_Pages_Index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Index.vue */ "./resources/js/Pages/Index.vue"));
   },
   name: 'index'
+}, {
+  path: '/product',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_Pages_Product_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Product.vue */ "./resources/js/Pages/Product.vue"));
+  },
+  name: 'Product'
+}, {
+  path: '/analysis',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_Pages_Analysis_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Analysis.vue */ "./resources/js/Pages/Analysis.vue"));
+  },
+  name: 'Analysis',
+  children: [{
+    path: 'recommend',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "resources_js_Pages_Analysis_recommend_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Analysis/recommend.vue */ "./resources/js/Pages/Analysis/recommend.vue"));
+    }
+  }, {
+    path: 'normal',
+    component: function component() {
+      return __webpack_require__.e(/*! import() */ "resources_js_Pages_Analysis_normal_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Analysis/normal.vue */ "./resources/js/Pages/Analysis/normal.vue"));
+    }
+  }]
 }];
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (routes);
 
@@ -1956,11 +1979,15 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: {
-    count: 0
+    count: 0,
+    products: {}
   },
   mutations: {
     INCREMENT: function INCREMENT(state) {
       state.count++;
+    },
+    SET_PRODUCT: function SET_PRODUCT(state, data) {
+      state.products = data;
     }
   },
   actions: {}
@@ -36718,7 +36745,7 @@ var index = {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_Pages_Home_vue":1,"resources_js_Pages_About_vue":1,"resources_js_Pages_Recorder_vue":1,"resources_js_Pages_Index_vue":1,"resources_js_Components_Navbar_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_Pages_Home_vue":1,"resources_js_Pages_About_vue":1,"resources_js_Pages_Recorder_vue":1,"resources_js_Pages_Index_vue":1,"resources_js_Pages_Product_vue":1,"resources_js_Pages_Analysis_vue":1,"resources_js_Pages_Analysis_recommend_vue":1,"resources_js_Pages_Analysis_normal_vue":1,"resources_js_Components_Navbar_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

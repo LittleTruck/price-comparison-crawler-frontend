@@ -22,7 +22,22 @@ const routes = [
     {
         path: '/product',
         component: () => import('../Pages/Product.vue'),
-        name: 'product'
+        name: 'Product'
+    },
+    {
+        path: '/analysis',
+        component: () => import('../Pages/Analysis.vue'),
+        name: 'Analysis',
+        children: [
+            {
+                path: 'recommend',
+                component: () => import('../Pages/Analysis/recommend.vue'),
+            },
+            {
+                path: 'normal',
+                component: () => import('../Pages/Analysis/normal.vue'),
+            }
+        ]
     },
 ]
 
