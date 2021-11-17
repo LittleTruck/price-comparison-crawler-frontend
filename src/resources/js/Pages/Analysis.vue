@@ -1,6 +1,6 @@
 <template>
-    <div style="background-color: #404040" class="flex flex-wrap w-full h-screen justify-center overflow-hidden text-white">
-        <div class="w-full p-10 text-left text-3xl leading-loose tracking-wide">
+    <div style="background-color: #404040;" class="flex flex-wrap w-full h-screen justify-center overflow-hidden text-white">
+        <div style="max-width: 400px" class="w-full p-10 text-left text-3xl leading-loose tracking-wide">
             小米無線雙模滑鼠<br>靜音版 白色
             <div class="w-full flex justify-between mt-4">
                 <router-link to="/analysis/recommend" class="w-48 flex justify-center items-center border rounded-full text-xl pt-1 pb-2">推薦商品</router-link>
@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style scoped>
-.router-link-exact-active{
+.router-link-active{
     background-color: white;
     color: #2F80ED;
 }
