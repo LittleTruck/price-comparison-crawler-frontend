@@ -5,12 +5,12 @@
             <router-link to="/analysis/recommend/discount"
                          class="flex justify-center items-center border rounded-full text-base px-8 pt-1 pb-2 hover:bg-gray-200">
                 <box-icon class="w-6 h-6 pt-0.5" color="#FF733C" type="solid" name='hot'></box-icon>
-                推薦商品
+                折扣最多
             </router-link>
             <router-link to="/analysis/recommend/lowest"
                          class="flex justify-center items-center border rounded-full text-base px-8 pt-1 pb-2 hover:bg-gray-200">
                 <box-icon class="w-6 h-6 pt-0.5" color="#FF4132" type='solid' name='heart'></box-icon>
-                正常價格
+                價格最低
             </router-link>
         </div>
         <router-view></router-view>

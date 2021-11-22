@@ -45,7 +45,6 @@ export default {
     components: {
         ProductSlide,
         swiper,
-
         swiperSlide
     },
     data() {

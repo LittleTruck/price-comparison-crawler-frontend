@@ -22,6 +22,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Navbar"
 });
@@ -116,29 +118,23 @@ var render = function() {
     _c("ul", { staticClass: "navBar_link" }, [
       _c(
         "li",
-        [_c("router-link", { attrs: { to: "/home" } }, [_vm._v("Home")])],
+        [_c("router-link", { attrs: { to: "/index" } }, [_vm._v("Index")])],
         1
       ),
       _vm._v(" "),
       _c(
         "li",
-        [_c("router-link", { attrs: { to: "/about" } }, [_vm._v("About")])],
+        [_c("router-link", { attrs: { to: "/product" } }, [_vm._v("Product")])],
         1
       ),
       _vm._v(" "),
       _c(
         "li",
         [
-          _c("router-link", { attrs: { to: "/recorder" } }, [
-            _vm._v("Recorder")
+          _c("router-link", { attrs: { to: "/analysis" } }, [
+            _vm._v("Analysis")
           ])
         ],
-        1
-      ),
-      _vm._v(" "),
-      _c(
-        "li",
-        [_c("router-link", { attrs: { to: "/index" } }, [_vm._v("Index")])],
         1
       )
     ])
