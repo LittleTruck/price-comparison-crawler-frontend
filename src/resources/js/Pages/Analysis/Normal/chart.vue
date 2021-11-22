@@ -1,9 +1,10 @@
 <template>
-    <div>
-        <div id="chart">
-            <apexchart type="boxPlot" height="350" :options="chartOptions" :series="series"></apexchart>
+    <div class="p-10">
+        <div style="box-shadow: 2px 2px 15px 5px #EDEBEB"
+             class="custom-coordinate relative p-1 rounded-3xl" id="chart">
+            <apexchart type="boxPlot" height="350" :options="chartOptions" :series="series"/>
+            <h2>正常價格：$325 ~ $400</h2>
         </div>
-        <h2>正常價格：$325 ~ $400</h2>
     </div>
 </template>
 
@@ -28,21 +29,67 @@ export default {
                         }
                     ]
                 },
-                {
-                    name: '離群值',
-                    type: 'scatter',
-                    data: [
-                        {
-                            x: '小米無線靜音滑鼠',
-                            y: 500
-                        }
-                    ]
-                }
+                // {
+                //     name: '離群值',
+                //     type: 'scatter',
+                //     data: [
+                //         {
+                //             x: '小米無線靜音滑鼠',
+                //             y: 500
+                //         }
+                //     ]
+                // }
             ],
             chartOptions: {
                 chart: {
                     type: 'boxPlot',
-                    height: 350
+                    height: 350,
+                    toolbar:{
+                        show:false
+                    }
+                },
+                labels: ['Apples', 'Oranges', 'Berries', 'Grapes'],
+                dataLabels: {
+                    enabled: true,
+                    enabledOnSeries: true,
+                    formatter: function (val, { seriesIndex }) {
+                        return '最高價格' + val + seriesIndex
+                    },
+                    textAnchor: 'middle',
+                    distributed: false,
+                    offsetX: 0,
+                    offsetY: 0,
+                    style: {
+                        fontSize: '14px',
+                        fontFamily: 'Helvetica, Arial, sans-serif',
+                        fontWeight: 'bold',
+                        colors: undefined
+                    },
+                    background: {
+                        enabled: true,
+                        foreColor: '#fff',
+                        padding: 4,
+                        borderRadius: 2,
+                        borderWidth: 1,
+                        borderColor: '#fff',
+                        opacity: 0.9,
+                        dropShadow: {
+                            enabled: false,
+                            top: 1,
+                            left: 1,
+                            blur: 1,
+                            color: '#000',
+                            opacity: 0.45
+                        }
+                    },
+                    dropShadow: {
+                        enabled: false,
+                        top: 1,
+                        left: 1,
+                        blur: 1,
+                        color: '#000',
+                        opacity: 0.45
+                    }
                 },
                 colors: ['#008FFB', '#FEB019'],
                 title: {
@@ -60,7 +107,7 @@ export default {
                 tooltip: {
                     shared: false,
                     intersect: true
-                }
+                },
             },
         }
     }
@@ -68,5 +115,7 @@ export default {
 </script>
 
 <style scoped>
+.custom-coordinate ::v-deep .apexcharts-boxPlot-series{
 
+}
 </style>
