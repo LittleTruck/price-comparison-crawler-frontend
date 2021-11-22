@@ -26,9 +26,12 @@
         </div>
         <div class="flex flex-col mt-4">
             <button style="border-radius: 2.5rem 0 2.5rem 0"
-                class="w-60 bg-black text-white py-6 text-xl">BUY NOW</button>
-            <button style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"
-                class="w-60 bg-white rounded-full py-2 mt-4 text-xl text-gray-500">Learn more</button>
+                    class="w-60 bg-black text-white py-6 text-xl">BUY NOW
+            </button>
+            <button @click="$router.push('analysis/recommend/discount')"
+                    style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;"
+                    class="w-60 bg-white rounded-full py-2 mt-4 text-xl text-gray-500">Learn more
+            </button>
         </div>
     </div>
 </template>

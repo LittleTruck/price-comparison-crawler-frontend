@@ -37,7 +37,7 @@
 <!--                    <p>size: {{ image.size/1024 }}KB</p>-->
 <!--                </template>-->
                 <label>
-                    <img v-if="!preview" src="/images/click_to_photo.gif" class="w-full p-6 absolute left-14 top-14" alt="">
+                    <img v-if="!preview" src="/images/click_to_photo.gif" class="w-full p-6 absolute left-12 top-14" alt="">
                     <span v-else style="top:50%;left:50%;width:26rem;height:26rem;transform: translate(-50%,-50%);background-color: #646464;"
                           class="absolute rounded-full z-10 p-4 overflow-hidden">
                         <div v-if="preview" class="w-full h-full bg-white rounded-full overflow-hidden flex p-8">
@@ -56,7 +56,7 @@
 <!--                <span style="top:52%;left:52%;width:30rem;height:30rem;transform: translate(-50%,-50%);"-->
 <!--                      class="absolute w-96 h-96 rounded-full bg-gray-300 z-10"></span>-->
             </div>
-            <div style="margin-top: -60%">
+            <div style="margin-top: -65%">
                 <div class="absolute right-0 text-5xl text-right pr-12 leading-tight">
                     <div class="text-gray-500">or</div>
                     <div>enter</div>

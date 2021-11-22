@@ -65,7 +65,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     };
   },
   components: {},
-  created: function created() {},
+  created: function created() {
+    this.callCamera();
+  },
   methods: {
     callCamera: function callCamera() {
       var _this = this;
@@ -137,15 +139,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                 url = "http://110digitiri.ap-northeast-1.elasticbeanstalk.com/api/photo";
                 formData.append("file", _this3.image); //required
+
+                formData.append("language", 'zh_TW'); //required
                 // this.flag = 1;
 
                 axios__WEBPACK_IMPORTED_MODULE_1___default().post("".concat(url), formData).then(function (res) {
-                  alert(res.data.message); // console.log(res);
+                  _this3.$store.commit("SET_PRODUCT", res.data); // alert(res.data.message);
+
+
+                  _this3.$router.push("/product");
                 })["catch"](function (e) {
                   console.log(e);
                 });
 
-              case 4:
+              case 5:
               case "end":
                 return _context.stop();
             }
@@ -1078,11 +1085,23 @@ var render = function() {
       "div",
       { staticClass: "del-h1" },
       [
-        _c("input", {
-          ref: "file",
-          attrs: { type: "file", accept: "image/*", capture: "user" },
-          on: { change: _vm.previewImg }
-        }),
+        _c("div", [
+          _c("video", {
+            ref: "video",
+            attrs: { width: "640", height: "480", autoplay: "" }
+          }),
+          _vm._v(" "),
+          _c(
+            "button",
+            { staticClass: "btn-default", on: { click: _vm.photograph } },
+            [_vm._v("Confirm")]
+          ),
+          _vm._v(" "),
+          _c("canvas", {
+            ref: "canvas",
+            attrs: { width: "640", height: "480" }
+          })
+        ]),
         _vm._v(" "),
         _vm.preview
           ? [
@@ -1094,38 +1113,16 @@ var render = function() {
             ]
           : _vm._e(),
         _vm._v(" "),
+        _c("input", {
+          ref: "file",
+          attrs: { type: "file", accept: "image/*", capture: "user" },
+          on: { change: _vm.previewImg }
+        }),
+        _vm._v(" "),
         _c(
           "butoon",
           { staticClass: "btn-default", on: { click: _vm.imgUpload } },
           [_vm._v("Upload")]
-        ),
-        _vm._v(" "),
-        _c(
-          "div",
-          [
-            _c(
-              "butoon",
-              { staticClass: "btn-default", on: { click: _vm.callCamera } },
-              [_vm._v("Capture")]
-            ),
-            _vm._v(" "),
-            _c("video", {
-              ref: "video",
-              attrs: { width: "640", height: "480", autoplay: "" }
-            }),
-            _vm._v(" "),
-            _c(
-              "button",
-              { staticClass: "btn-default", on: { click: _vm.photograph } },
-              [_vm._v("Confirm")]
-            ),
-            _vm._v(" "),
-            _c("canvas", {
-              ref: "canvas",
-              attrs: { width: "640", height: "480" }
-            })
-          ],
-          1
         )
       ],
       2
