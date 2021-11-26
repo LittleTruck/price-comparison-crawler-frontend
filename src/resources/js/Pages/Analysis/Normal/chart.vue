@@ -53,7 +53,7 @@ export default {
                     enabled: true,
                     enabledOnSeries: true,
                     formatter: function (val, { seriesIndex }) {
-                        return '最高價格' + val + seriesIndex
+                        return '最高價格：' + val
                     },
                     textAnchor: 'middle',
                     distributed: false,

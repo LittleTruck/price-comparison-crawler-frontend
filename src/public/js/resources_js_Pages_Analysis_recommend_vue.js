@@ -235,7 +235,7 @@ var render = function() {
                 staticClass: "w-6 h-6 pt-0.5",
                 attrs: { color: "#FF733C", type: "solid", name: "hot" }
               }),
-              _vm._v("\n            推薦商品\n        ")
+              _vm._v("\n            折扣最多\n        ")
             ],
             1
           ),
@@ -252,7 +252,7 @@ var render = function() {
                 staticClass: "w-6 h-6 pt-0.5",
                 attrs: { color: "#FF4132", type: "solid", name: "heart" }
               }),
-              _vm._v("\n            正常價格\n        ")
+              _vm._v("\n            價格最低\n        ")
             ],
             1
           )

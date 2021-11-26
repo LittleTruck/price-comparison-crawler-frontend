@@ -116,6 +116,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -157,17 +163,40 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 0:
                 formData = new FormData(); // const apiUrl = this.$store.state.apiServerUrl;
 
-                url = "http://110digitiri.ap-northeast-1.elasticbeanstalk.com/api/photo";
+                url = "https://flaskapiserver-env.imacloud.com.tw/api/photo";
                 formData.append("file", _this2.image); //required
 
                 formData.append("language", 'zh_TW'); //required
                 // this.flag = 1;
 
                 axios__WEBPACK_IMPORTED_MODULE_2___default().post("".concat(url), formData).then(function (res) {
-                  _this2.$store.commit("SET_PRODUCT", res.data); // alert(res.data.message);
+                  _this2.$store.commit("SET_BRAND", res.data.analysis_result.Brands); // this.$router.push("/product");
 
 
-                  _this2.$router.push("/product");
+                  var result = {
+                    keyword: {
+                      brands: [],
+                      color: [],
+                      tag: []
+                    },
+                    detail_information: {
+                      describe: {},
+                      color_detail: {},
+                      all_Tag: []
+                    }
+                  };
+                  result.keyword.brands = [res.data.analysis_result.Brands];
+                  result.keyword.color = [res.data.analysis_result.Color[0]];
+                  result.keyword.tag = [res.data.analysis_result.Tag[0].name]; // res.data.analysis_result.Tag.forEach(a => {
+                  //     result.keyword.tag.push(a.name)
+                  // })
+
+                  result.detail_information.describe = res.data.detail_information.describe;
+                  result.detail_information.color_detail = res.data.detail_information.color_detail;
+                  result.detail_information.all_Tag = res.data.analysis_result.Tag;
+                  console.log(result);
+
+                  _this2.postAnalyze(result);
                 })["catch"](function (e) {
                   console.log(e);
                 });
@@ -178,6 +207,32 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             }
           }
         }, _callee);
+      }))();
+    },
+    postAnalyze: function postAnalyze(recognition) {
+      var _this3 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+        var url;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                url = "https://flaskapiserver-env.imacloud.com.tw/api/analyze";
+                axios__WEBPACK_IMPORTED_MODULE_2___default().post("".concat(url), recognition).then(function (res) {
+                  _this3.$store.commit("SET_PRODUCT", res.data.table_normal_decrease);
+
+                  _this3.$router.push("/product");
+                })["catch"](function (e) {
+                  console.log(e);
+                });
+
+              case 2:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
       }))();
     }
   }
@@ -213,7 +268,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n[data-v-3655eff9]:focus {\n    outline: none;\n}\n\n/*斜三角背景css*/\n.skew-bg[data-v-3655eff9], .skew-bg-mobile[data-v-3655eff9] {\n    width: 100%;\n    height: 100vh;\n    position: relative;\n    overflow: hidden;\n    /*調整斜三角顏色 -> background-color: red;*/\n}\n.skew-bg[data-v-3655eff9]:before {\n    content: '';\n    position: absolute;\n    right: 0;\n    top: 0;\n    width: 200%;\n    height: 100%;\n    background: white;\n    transform-origin: 100% 0;\n    transform: skewX(-35deg);\n}\n.skew-bg-mobile[data-v-3655eff9]:before {\n    content: '';\n    position: absolute;\n    right: 0;\n    top: 0;\n    width: calc(100% + 150px);\n    height: 100%;\n    background: white;\n    transform-origin:0 0;\n    transform: skewY(-30deg);\n}\n\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n[data-v-3655eff9]:focus {\n    outline: none;\n}\n\n/*斜三角背景css*/\n.skew-bg[data-v-3655eff9], .skew-bg-mobile[data-v-3655eff9] {\n    width: 100%;\n    height: 100vh;\n    position: relative;\n    overflow: hidden;\n    /*調整斜三角顏色 -> background-color: red;*/\n}\n.skew-bg[data-v-3655eff9]:before {\n    content: '';\n    position: absolute;\n    right: 0;\n    top: 0;\n    width: 200%;\n    height: 100%;\n    background: white;\n    transform-origin: 100% 0;\n    transform: skewX(-35deg);\n}\n.skew-bg-mobile[data-v-3655eff9]:before {\n    content: '';\n    position: absolute;\n    right: 0;\n    top: 0;\n    width: calc(100% + 150px);\n    height: 100%;\n    background: white;\n    transform-origin: 0 0;\n    transform: skewY(-30deg);\n}\n\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -1249,7 +1304,7 @@ var render = function() {
                             on: { click: _vm.imgUpload }
                           },
                           [
-                            _vm._v("\n                            UPLOAD "),
+                            _vm._v("\n                        UPLOAD "),
                             _c("box-icon", {
                               staticClass: "ml-2 w-8 h-8",
                               attrs: { name: "upload", color: "white" }
@@ -1320,7 +1375,7 @@ var render = function() {
                 "w-full h-14 bg-white rounded-full px-8 py-3.5 flex justify-center items-center text-2xl shadow-md float-right cursor-pointer hover:opacity-60"
             },
             [
-              _vm._v("\n                    Submit\n                    "),
+              _vm._v("\n                Submit\n                "),
               _c("box-icon", {
                 staticClass: "w-10 h-10",
                 attrs: { name: "right-arrow-alt" }

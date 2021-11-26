@@ -2,8 +2,8 @@
     <div class="w-full flex flex-col justify-between items-center">
         <div>
             <div class="w-full flex justify-between items-center px-8 pr-12">
-                <span class="text-4xl font-bold py-10 px-5">{{ $store.state.products.analysis_result.Brands }}</span>
-                <span class="bg-red-400 text-white text-xl px-6 py-2 rounded-full tracking-widest">PCHOME</span>
+                <span class="text-4xl font-bold py-10 px-5">{{ $store.state.brand }}</span>
+                <span class="bg-red-400 text-white text-xl px-6 py-2 rounded-full tracking-widest">{{ $store.state.products.shop }}</span>
             </div>
             <div class="w-full flex justify-center items-center p-10">
                 <img src="/images/LogiTech_Mouse.jpg">
@@ -11,8 +11,8 @@
         </div>
         <div class="flex flex-wrap w-full">
             <span class="text-2xl font-semibold w-full">
-                {{ $store.state.products.detail_information.Describe.string }}
-                <br>靜音版 白色
+                {{ $store.state.products.name }}
+<!--                <br>靜音版 白色-->
             </span>
             <span class="w-full my-4">
                 雙模連接

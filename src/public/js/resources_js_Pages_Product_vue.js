@@ -46,6 +46,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "productSlide"
 });
@@ -8577,7 +8580,7 @@ var render = function() {
           },
           [
             _c("span", { staticClass: "text-4xl font-bold py-10 px-5" }, [
-              _vm._v(_vm._s(_vm.$store.state.products.analysis_result.Brands))
+              _vm._v(_vm._s(_vm.$store.state.brand))
             ]),
             _vm._v(" "),
             _c(
@@ -8586,7 +8589,7 @@ var render = function() {
                 staticClass:
                   "bg-red-400 text-white text-xl px-6 py-2 rounded-full tracking-widest"
               },
-              [_vm._v("PCHOME")]
+              [_vm._v(_vm._s(_vm.$store.state.products.shop))]
             )
           ]
         ),
@@ -8597,24 +8600,42 @@ var render = function() {
       _c("div", { staticClass: "flex flex-wrap w-full" }, [
         _c("span", { staticClass: "text-2xl font-semibold w-full" }, [
           _vm._v(
-            "\n            " +
-              _vm._s(
-                _vm.$store.state.products.detail_information.Describe.string
-              ) +
-              "\n            "
-          ),
-          _c("br"),
-          _vm._v("靜音版 白色\n        ")
+            "\n                " + _vm._s(_vm.$store.state.products.name) + "\n"
+          )
         ]),
         _vm._v(" "),
         _vm._m(1),
         _vm._v(" "),
         _c("span", { staticClass: "w-full text-red-600 text-4xl my-4" }, [
-          _vm._v("\n            $365\n        ")
+          _vm._v("\n                $365\n            ")
         ])
       ]),
       _vm._v(" "),
-      _vm._m(2)
+      _c("div", { staticClass: "flex flex-col mt-4" }, [
+        _c(
+          "button",
+          {
+            staticClass: "w-60 bg-black text-white py-6 text-xl",
+            staticStyle: { "border-radius": "2.5rem 0 2.5rem 0" }
+          },
+          [_vm._v("BUY NOW\n            ")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass:
+              "w-60 bg-white rounded-full py-2 mt-4 text-xl text-gray-500",
+            staticStyle: { "box-shadow": "rgba(0, 0, 0, 0.35) 0px 5px 15px" },
+            on: {
+              click: function($event) {
+                return _vm.$router.push("analysis/recommend/discount")
+              }
+            }
+          },
+          [_vm._v("Learn more\n            ")]
+        )
+      ])
     ]
   )
 }
@@ -8634,38 +8655,13 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("span", { staticClass: "w-full my-4" }, [
-      _vm._v("\n            雙模連接\n            "),
+      _vm._v("\n                雙模連接\n                "),
       _c("br"),
-      _vm._v("靜音運作\n            "),
+      _vm._v("靜音運作\n                "),
       _c("br"),
-      _vm._v("側位按鍵\n            "),
+      _vm._v("側位按鍵\n                "),
       _c("br"),
-      _vm._v("舒適握感\n        ")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex flex-col mt-4" }, [
-      _c(
-        "button",
-        {
-          staticClass: "w-60 bg-black text-white py-6 text-xl",
-          staticStyle: { "border-radius": "2.5rem 0 2.5rem 0" }
-        },
-        [_vm._v("BUY NOW")]
-      ),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass:
-            "w-60 bg-white rounded-full py-2 mt-4 text-xl text-gray-500",
-          staticStyle: { "box-shadow": "rgba(0, 0, 0, 0.35) 0px 5px 15px" }
-        },
-        [_vm._v("Learn more")]
-      )
+      _vm._v("舒適握感\n            ")
     ])
   }
 ]

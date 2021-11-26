@@ -3,11 +3,12 @@
         <div class="desktop">
             <div class="skew-bg flex">
                 <div class="w-2/3 relative">
-                    <router-link to="/recorder"><img src="/images/click_to_photo.gif" style="max-width: 65%; margin-left: 25%;" alt=""></router-link>
-<!--                    <router-link to="/recorder"><span style="top:50%;left:50%;transform: translate(-50%,-50%);background-color: #646464"-->
-<!--                                                        class="absolute w-96 h-96 rounded-full z-20"></span></router-link>-->
-<!--                    <span style="top:52%;left:52%;transform: translate(-50%,-50%);"-->
-<!--                          class="absolute w-96 h-96 rounded-full bg-gray-300 z-10"></span>-->
+                    <router-link to="/recorder"><img src="/images/click_to_photo.gif"
+                                                     style="max-width: 65%; margin-left: 25%;" alt=""></router-link>
+                    <!--                    <router-link to="/recorder"><span style="top:50%;left:50%;transform: translate(-50%,-50%);background-color: #646464"-->
+                    <!--                                                        class="absolute w-96 h-96 rounded-full z-20"></span></router-link>-->
+                    <!--                    <span style="top:52%;left:52%;transform: translate(-50%,-50%);"-->
+                    <!--                          class="absolute w-96 h-96 rounded-full bg-gray-300 z-10"></span>-->
                 </div>
 
                 <div style="top:58%;transform: translateY(-50%)"
@@ -31,30 +32,35 @@
         <div class="mobile relative">
             <div class="skew-bg-mobile"></div>
             <div style="height: 70vh" class="absolute top-0 left-0 w-full">
-<!--                <template v-if="preview">-->
-<!--                    <img :src="preview"  alt=""/>-->
-<!--                    <p>file name: {{ image.name }}</p>-->
-<!--                    <p>size: {{ image.size/1024 }}KB</p>-->
-<!--                </template>-->
+                <!--                <template v-if="preview">-->
+                <!--                    <img :src="preview"  alt=""/>-->
+                <!--                    <p>file name: {{ image.name }}</p>-->
+                <!--                    <p>size: {{ image.size/1024 }}KB</p>-->
+                <!--                </template>-->
                 <label>
-                    <img v-if="!preview" src="/images/click_to_photo.gif" class="w-full p-6 absolute left-12 top-14" alt="">
-                    <span v-else style="top:50%;left:50%;width:26rem;height:26rem;transform: translate(-50%,-50%);background-color: #646464;"
+                    <img v-if="!preview" src="/images/click_to_photo.gif" class="w-full p-6 absolute left-12 top-14"
+                         alt="">
+                    <span v-else
+                          style="top:50%;left:50%;width:26rem;height:26rem;transform: translate(-50%,-50%);background-color: #646464;"
                           class="absolute rounded-full z-10 p-4 overflow-hidden">
                         <div v-if="preview" class="w-full h-full bg-white rounded-full overflow-hidden flex p-8">
-                            <input class="w-full h-full" ref="file" type="file" accept="image/*" capture="user" @change="previewImg"/>
+                            <input class="w-full h-full" ref="file" type="file" accept="image/*" capture="user"
+                                   @change="previewImg"/>
                             <img :src="preview">
                         </div>
                         <button @click="imgUpload" v-if="preview" style="background-color: rgba(0,0,0,.6)"
-                              class="absolute w-full h-32 flex justify-center items-center bottom-0 left-0 text-white text-2xl z-10 hover:-translate-y-1">
+                                class="absolute w-full h-32 flex justify-center items-center bottom-0 left-0 text-white text-2xl z-10 hover:-translate-y-1">
                             UPLOAD <box-icon class="ml-2 w-8 h-8" name='upload' color="white"></box-icon>
                         </button>
                      </span>
 
-                    <input v-if="!preview" style="left: 50%;top: 50%; transform: translate(-50%,-50%);width: 75%; padding-top: 75%; height: 0"
-                        class="absolute bg-black px-20 rounded-full opacity-0 cursor-pointer z-10" ref="file" type="file" accept="image/*" capture="user" @change="previewImg"/>
+                    <input v-if="!preview"
+                           style="left: 50%;top: 50%; transform: translate(-50%,-50%);width: 75%; padding-top: 75%; height: 0"
+                           class="absolute bg-black px-20 rounded-full opacity-0 cursor-pointer z-10" ref="file"
+                           type="file" accept="image/*" capture="user" @change="previewImg"/>
                 </label>
-<!--                <span style="top:52%;left:52%;width:30rem;height:30rem;transform: translate(-50%,-50%);"-->
-<!--                      class="absolute w-96 h-96 rounded-full bg-gray-300 z-10"></span>-->
+                <!--                <span style="top:52%;left:52%;width:30rem;height:30rem;transform: translate(-50%,-50%);"-->
+                <!--                      class="absolute w-96 h-96 rounded-full bg-gray-300 z-10"></span>-->
             </div>
             <div style="margin-top: -65%">
                 <div class="absolute right-0 text-5xl text-right pr-12 leading-tight">
@@ -96,14 +102,14 @@ export default {
         }
     },
     methods: {
-        previewImg: function(event) {
+        previewImg: function (event) {
             const input = event.target;
             if (input.files) {
                 const reader = new FileReader();
                 reader.onload = (e) => {
                     this.preview = e.target.result;
                 }
-                this.image=input.files[0];
+                this.image = input.files[0];
                 reader.readAsDataURL(input.files[0]);
             }
         },
@@ -111,15 +117,52 @@ export default {
             {
                 const formData = new FormData();
                 // const apiUrl = this.$store.state.apiServerUrl;
-                const url = "http://110digitiri.ap-northeast-1.elasticbeanstalk.com/api/photo";
+                const url = "https://flaskapiserver-env.imacloud.com.tw/api/photo";
                 formData.append("file", this.image); //required
                 formData.append("language", 'zh_TW'); //required
                 // this.flag = 1;
                 axios
                     .post(`${url}`, formData)
                     .then(res => {
-                        this.$store.commit("SET_PRODUCT", res.data)
-                        // alert(res.data.message);
+                        this.$store.commit("SET_BRAND", res.data.analysis_result.Brands);
+                        // this.$router.push("/product");
+                        let result = {
+                            keyword: {
+                                brands: [],
+                                color: [],
+                                tag: []
+                            },
+                            detail_information: {
+                                describe: {},
+                                color_detail: {},
+                                all_Tag: []
+                            }
+                        }
+                        result.keyword.brands = [res.data.analysis_result.Brands];
+                        result.keyword.color = [res.data.analysis_result.Color[0]];
+                        result.keyword.tag = [res.data.analysis_result.Tag[0].name];
+                        // res.data.analysis_result.Tag.forEach(a => {
+                        //     result.keyword.tag.push(a.name)
+                        // })
+                        result.detail_information.describe = res.data.detail_information.describe;
+                        result.detail_information.color_detail = res.data.detail_information.color_detail;
+                        result.detail_information.all_Tag = res.data.analysis_result.Tag;
+
+                        console.log(result);
+                        this.postAnalyze(result);
+                    })
+                    .catch(e => {
+                        console.log(e);
+                    });
+            }
+        },
+        async postAnalyze(recognition) {
+            {
+                const url = "https://flaskapiserver-env.imacloud.com.tw/api/analyze";
+                axios
+                    .post(`${url}`, recognition)
+                    .then(res => {
+                        this.$store.commit("SET_PRODUCT", res.data.table_normal_decrease);
                         this.$router.push("/product");
                     })
                     .catch(e => {
@@ -157,6 +200,7 @@ export default {
     transform-origin: 100% 0;
     transform: skewX(-35deg);
 }
+
 .skew-bg-mobile:before {
     content: '';
     position: absolute;
@@ -165,7 +209,7 @@ export default {
     width: calc(100% + 150px);
     height: 100%;
     background: white;
-    transform-origin:0 0;
+    transform-origin: 0 0;
     transform: skewY(-30deg);
 }
 

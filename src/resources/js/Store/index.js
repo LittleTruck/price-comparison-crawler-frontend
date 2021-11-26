@@ -14,6 +14,9 @@ const store = new Vuex.Store({
         },
         SET_PRODUCT(state, data){
             state.products = data
+        },
+        SET_BRAND(state, data){
+            state.brand = data
         }
     },
     actions: {}
