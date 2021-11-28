@@ -179,10 +179,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                       color: [],
                       tag: []
                     },
-                    detail_information: {
-                      describe: {},
-                      color_detail: {},
-                      all_Tag: []
+                    detail_information: {// describe: {},
+                      // color_detail: {},
+                      // all_Tag: []
                     }
                   };
                   result.keyword.brands = [res.data.analysis_result.Brands];
@@ -190,10 +189,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   result.keyword.tag = [res.data.analysis_result.Tag[0].name]; // res.data.analysis_result.Tag.forEach(a => {
                   //     result.keyword.tag.push(a.name)
                   // })
+                  // result.detail_information.describe = res.data.detail_information.Describe;
+                  // result.detail_information.color_detail = res.data.detail_information.color_detail;
+                  // result.detail_information.all_Tag = res.data.analysis_result.Tag.slice(0, 4);
 
-                  result.detail_information.describe = res.data.detail_information.describe;
-                  result.detail_information.color_detail = res.data.detail_information.color_detail;
-                  result.detail_information.all_Tag = res.data.analysis_result.Tag;
                   console.log(result);
 
                   _this2.postAnalyze(result);
@@ -219,7 +218,14 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             switch (_context2.prev = _context2.next) {
               case 0:
                 url = "https://flaskapiserver-env.imacloud.com.tw/api/analyze";
-                axios__WEBPACK_IMPORTED_MODULE_2___default().post("".concat(url), recognition).then(function (res) {
+                axios__WEBPACK_IMPORTED_MODULE_2___default().post("".concat(url), {
+                  keyword: {
+                    brands: ["New Balance"],
+                    color: ["白色"],
+                    tag: ["鞋"]
+                  },
+                  detail_information: {}
+                }).then(function (res) {
                   _this3.$store.commit("SET_PRODUCT", res.data.table_normal_decrease);
 
                   _this3.$router.push("/product");

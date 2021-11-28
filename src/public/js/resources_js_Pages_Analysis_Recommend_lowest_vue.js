@@ -129,71 +129,85 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    {
+      staticClass:
+        "w-full flex flex-col justify-around items-center my-8 mx-auto",
+      staticStyle: { "max-width": "400px", "min-height": "500px" }
+    },
+    [
+      _c("div", [
+        _c(
+          "div",
+          { staticClass: "w-full flex justify-end items-center px-8 pr-12" },
+          [
+            _c(
+              "span",
+              {
+                staticClass:
+                  "bg-green-400 text-white text-lg px-6 py-1.5 rounded-full tracking-widest"
+              },
+              [_vm._v(_vm._s(_vm.$store.state.lowest_product.shop))]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "w-full flex justify-center items-center px-16" },
+          [_c("img", { attrs: { src: _vm.$store.state.lowest_product.image } })]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex flex-wrap w-full" }, [
+        _c("span", { staticClass: "w-full text-red-600 text-4xl my-4" }, [
+          _vm._v(
+            "\n            $" +
+              _vm._s(_vm.$store.state.lowest_product.discountprice) +
+              "\n        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("span", { staticClass: "w-full my-4 text-2xl" }, [
+          _vm._v("原價\n          "),
+          _c("br"),
+          _vm._v(
+            "$" +
+              _vm._s(_vm.$store.state.lowest_product.rawprice) +
+              "\n            "
+          ),
+          _c("br"),
+          _vm._v(" "),
+          _c("span", { staticClass: "text-green-400" }, [
+            _vm._v(
+              "-" +
+                _vm._s(_vm.$store.state.lowest_product.discountpercent) +
+                "%"
+            )
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _vm._m(0)
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "w-full flex flex-col justify-around items-center my-8 mx-auto",
-        staticStyle: { "max-width": "400px", "min-height": "500px" }
-      },
-      [
-        _c("div", [
-          _c(
-            "div",
-            { staticClass: "w-full flex justify-end items-center px-8 pr-12" },
-            [
-              _c(
-                "span",
-                {
-                  staticClass:
-                    "bg-green-400 text-white text-lg px-6 py-1.5 rounded-full tracking-widest"
-                },
-                [_vm._v("SHOPEE")]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "w-full flex justify-center items-center px-16" },
-            [_c("img", { attrs: { src: "/images/LogiTech_Mouse.jpg" } })]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "flex flex-wrap w-full" }, [
-          _c("span", { staticClass: "w-full text-red-600 text-4xl my-4" }, [
-            _vm._v("\n            $380\n        ")
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "w-full my-4 text-2xl" }, [
-            _vm._v("原價\n          "),
-            _c("br"),
-            _vm._v("$400\n            "),
-            _c("br"),
-            _vm._v(" "),
-            _c("span", { staticClass: "text-green-400" }, [_vm._v("-8.00%")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "flex flex-col mt-4" }, [
-          _c(
-            "button",
-            {
-              staticClass: "w-60 bg-black text-white py-6 text-xl",
-              staticStyle: { "border-radius": "2.5rem 0 2.5rem 0" }
-            },
-            [_vm._v("BUY NOW\n        ")]
-          )
-        ])
-      ]
-    )
+    return _c("div", { staticClass: "flex flex-col mt-4" }, [
+      _c(
+        "button",
+        {
+          staticClass: "w-60 bg-black text-white py-6 text-xl",
+          staticStyle: { "border-radius": "2.5rem 0 2.5rem 0" }
+        },
+        [_vm._v("BUY NOW\n        ")]
+      )
+    ])
   }
 ]
 render._withStripped = true

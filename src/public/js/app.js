@@ -2010,7 +2010,10 @@ vue__WEBPACK_IMPORTED_MODULE_0__["default"].use(vuex__WEBPACK_IMPORTED_MODULE_1_
 var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   state: {
     count: 0,
-    products: {}
+    products: {},
+    brand: "",
+    lowest_product: {},
+    discount_product: {}
   },
   mutations: {
     INCREMENT: function INCREMENT(state) {
@@ -2018,6 +2021,12 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
     },
     SET_PRODUCT: function SET_PRODUCT(state, data) {
       state.products = data;
+    },
+    SET_LOWEST_PRODUCT: function SET_LOWEST_PRODUCT(state, data) {
+      state.lowest_product = data;
+    },
+    SET_DISCOUNT_PRODUCT: function SET_DISCOUNT_PRODUCT(state, data) {
+      state.discount_product = data;
     },
     SET_BRAND: function SET_BRAND(state, data) {
       state.brand = data;

@@ -40,7 +40,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "discount"
+  name: "discount",
+  created: function created() {
+    this.$store.commit("SET_LOWEST_PRODUCT", {
+      "link": "https://www.momoshop.com.tw/goods/GoodsDetail.jsp?i_code=7322479&mdiv=searchEngine&oid=1_8&kw=New%20Balance%20%E7%99%BD%E8%89%B2%20%E9%9E%8B",
+      "discountpercent": 50,
+      "discountprice": 1825,
+      "shop": "momo",
+      "image": "https://og.momoshop.com.tw/1637072843/goodsimg/0007/322/479/7322479_L.jpg",
+      "name": "【NEW BALANCE】NB 輕量慢跑運動鞋_女鞋_白色_W890WO7-B楦 春夏 透氣 運動 休閒 潮流",
+      "rawprice": 3650
+    });
+    this.$store.commit("SET_DISCOUNT_PRODUCT", {
+      "link": "https://www.momoshop.com.tw/goods/GoodsDetail.jsp?i_code=7322479&mdiv=searchEngine&oid=1_8&kw=New%20Balance%20%E7%99%BD%E8%89%B2%20%E9%9E%8B",
+      "discountpercent": 50,
+      "discountprice": 1825,
+      "shop": "momo",
+      "image": "https://og.momoshop.com.tw/1637072843/goodsimg/0007/322/479/7322479_L.jpg",
+      "name": "【NEW BALANCE】NB 輕量慢跑運動鞋_女鞋_白色_W890WO7-B楦 春夏 透氣 運動 休閒 潮流",
+      "rawprice": 3650
+    });
+  }
 });
 
 /***/ }),
@@ -129,71 +149,89 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c(
+    "div",
+    {
+      staticClass:
+        "w-full flex flex-col justify-around items-center my-8 mx-auto",
+      staticStyle: { "max-width": "400px", "min-height": "500px" }
+    },
+    [
+      _c("div", [
+        _c(
+          "div",
+          { staticClass: "w-full flex justify-end items-center px-8 pr-12" },
+          [
+            _c(
+              "span",
+              {
+                staticClass:
+                  "bg-red-400 text-white text-lg px-6 py-1.5 rounded-full tracking-widest"
+              },
+              [_vm._v(_vm._s(_vm.$store.state.discount_product.shop))]
+            )
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "w-full flex justify-center items-center px-16" },
+          [
+            _c("img", {
+              attrs: { src: _vm.$store.state.discount_product.image }
+            })
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "flex flex-wrap w-full" }, [
+        _c("span", { staticClass: "w-full text-red-600 text-4xl my-4" }, [
+          _vm._v(
+            "\n            $" +
+              _vm._s(_vm.$store.state.discount_product.discountprice) +
+              "\n        "
+          )
+        ]),
+        _vm._v(" "),
+        _c("span", { staticClass: "w-full my-4 text-2xl" }, [
+          _vm._v("原價\n          "),
+          _c("br"),
+          _vm._v(
+            "$" +
+              _vm._s(_vm.$store.state.discount_product.rawprice) +
+              "\n            "
+          ),
+          _c("br"),
+          _vm._v(" "),
+          _c("span", { staticClass: "text-green-400" }, [
+            _vm._v(
+              "-" +
+                _vm._s(_vm.$store.state.discount_product.discountpercent) +
+                "%"
+            )
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _vm._m(0)
+    ]
+  )
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "w-full flex flex-col justify-around items-center my-8 mx-auto",
-        staticStyle: { "max-width": "400px", "min-height": "500px" }
-      },
-      [
-        _c("div", [
-          _c(
-            "div",
-            { staticClass: "w-full flex justify-end items-center px-8 pr-12" },
-            [
-              _c(
-                "span",
-                {
-                  staticClass:
-                    "bg-red-400 text-white text-lg px-6 py-1.5 rounded-full tracking-widest"
-                },
-                [_vm._v("PCHOME")]
-              )
-            ]
-          ),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticClass: "w-full flex justify-center items-center px-16" },
-            [_c("img", { attrs: { src: "/images/LogiTech_Mouse.jpg" } })]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "flex flex-wrap w-full" }, [
-          _c("span", { staticClass: "w-full text-red-600 text-4xl my-4" }, [
-            _vm._v("\n            $365\n        ")
-          ]),
-          _vm._v(" "),
-          _c("span", { staticClass: "w-full my-4 text-2xl" }, [
-            _vm._v("原價\n          "),
-            _c("br"),
-            _vm._v("$400\n            "),
-            _c("br"),
-            _vm._v(" "),
-            _c("span", { staticClass: "text-green-400" }, [_vm._v("-18.88%")])
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "flex flex-col mt-4" }, [
-          _c(
-            "button",
-            {
-              staticClass: "w-60 bg-black text-white py-6 text-xl",
-              staticStyle: { "border-radius": "2.5rem 0 2.5rem 0" }
-            },
-            [_vm._v("BUY NOW\n        ")]
-          )
-        ])
-      ]
-    )
+    return _c("div", { staticClass: "flex flex-col mt-4" }, [
+      _c(
+        "button",
+        {
+          staticClass: "w-60 bg-black text-white py-6 text-xl",
+          staticStyle: { "border-radius": "2.5rem 0 2.5rem 0" }
+        },
+        [_vm._v("BUY NOW\n        ")]
+      )
+    ])
   }
 ]
 render._withStripped = true

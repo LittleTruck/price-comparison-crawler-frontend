@@ -133,9 +133,9 @@ export default {
                                 tag: []
                             },
                             detail_information: {
-                                describe: {},
-                                color_detail: {},
-                                all_Tag: []
+                                // describe: {},
+                                // color_detail: {},
+                                // all_Tag: []
                             }
                         }
                         result.keyword.brands = [res.data.analysis_result.Brands];
@@ -144,9 +144,9 @@ export default {
                         // res.data.analysis_result.Tag.forEach(a => {
                         //     result.keyword.tag.push(a.name)
                         // })
-                        result.detail_information.describe = res.data.detail_information.describe;
-                        result.detail_information.color_detail = res.data.detail_information.color_detail;
-                        result.detail_information.all_Tag = res.data.analysis_result.Tag;
+                        // result.detail_information.describe = res.data.detail_information.Describe;
+                        // result.detail_information.color_detail = res.data.detail_information.color_detail;
+                        // result.detail_information.all_Tag = res.data.analysis_result.Tag.slice(0, 4);
 
                         console.log(result);
                         this.postAnalyze(result);
@@ -160,7 +160,25 @@ export default {
             {
                 const url = "https://flaskapiserver-env.imacloud.com.tw/api/analyze";
                 axios
-                    .post(`${url}`, recognition)
+                    .post(`${url}`,
+                        {
+                            keyword: {
+                                brands: [
+                                    "New Balance"
+                                ],
+                                color:
+                                    [
+                                        "白色"
+                                    ],
+                                tag:
+                                    [
+                                        "鞋"
+                                    ]
+                            }
+                            ,
+                            detail_information: {}
+                        }
+                    )
                     .then(res => {
                         this.$store.commit("SET_PRODUCT", res.data.table_normal_decrease);
                         this.$router.push("/product");

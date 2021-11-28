@@ -196,9 +196,11 @@ var render = function() {
           staticStyle: { "max-width": "400px" }
         },
         [
-          _vm._v("\n        小米無線雙模滑鼠"),
-          _c("br"),
-          _vm._v("靜音版 白色\n        "),
+          _vm._v(
+            "\n        " +
+              _vm._s(_vm.$store.state.discount_product.name) +
+              "\n        "
+          ),
           _c(
             "div",
             { staticClass: "w-full flex justify-between mt-4" },

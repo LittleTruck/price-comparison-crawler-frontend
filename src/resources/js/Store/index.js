@@ -6,16 +6,25 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
     state: {
         count: 0,
-        products:{}
+        products: {},
+        brand: "",
+        lowest_product: {},
+        discount_product: {},
     },
     mutations: {
-        INCREMENT(state){
+        INCREMENT(state) {
             state.count++
         },
-        SET_PRODUCT(state, data){
+        SET_PRODUCT(state, data) {
             state.products = data
         },
-        SET_BRAND(state, data){
+        SET_LOWEST_PRODUCT(state, data) {
+            state.lowest_product = data
+        },
+        SET_DISCOUNT_PRODUCT(state, data) {
+            state.discount_product = data
+        },
+        SET_BRAND(state, data) {
             state.brand = data
         }
     },
