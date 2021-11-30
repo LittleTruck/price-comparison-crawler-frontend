@@ -1,6 +1,6 @@
 <template>
-    <div class="app">
-        <Navbar></Navbar>
+    <div class="app" style="max-width: 400px;margin: 0 auto;">
+<!--        <Navbar></Navbar>-->
         <router-view></router-view>
     </div>
 </template>
@@ -98,7 +98,7 @@ body, html, #app, .app {
     padding: 0;
     margin: 0;
     font-family: 'Alata', 'Noto Sans TC';
-    background-color: #e6e6e6;
+    background-color: #777;
     text-align: center;
 }
 

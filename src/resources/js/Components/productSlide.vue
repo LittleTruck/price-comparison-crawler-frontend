@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full flex flex-col justify-between items-center">
+    <div class="w-full h-full overflow-auto flex flex-col justify-evenly items-center">
         <div>
             <div class="w-full flex justify-between items-center px-8 pr-12">
                 <span class="text-4xl font-bold py-10 px-5">{{ $store.state.brand }}</span>
@@ -24,7 +24,7 @@
                 ${{ product.discountprice }}
             </span>
         </div>
-        <div class="flex flex-col mt-4">
+        <div class="flex flex-col my-4 mb-16">
             <button style="border-radius: 2.5rem 0 2.5rem 0"
                     class="w-60 bg-black text-white py-6 text-xl">BUY NOW
             </button>

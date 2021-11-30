@@ -1,6 +1,8 @@
 ﻿<template>
     <div class="flex flex-col justify-center overflow-hidden">
-        <swiper class="swiper h-screen w-screen bg-white" :options="swiperOption">
+        <swiper class="swiper h-screen w-screen bg-white"
+                style="max-width: 400px"
+                :options="swiperOption">
 
             <swiper-slide v-for="(item, index) in $store.state.products">
                 <product-slide :product="item"/>

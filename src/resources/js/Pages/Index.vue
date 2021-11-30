@@ -1,44 +1,41 @@
 <template>
-    <div>
-        <div class="desktop">
-            <div class="skew-bg flex">
-                <div class="w-2/3 relative">
-                    <router-link to="/recorder"><img src="/images/click_to_photo.gif"
-                                                     style="max-width: 65%; margin-left: 25%;" alt=""></router-link>
-                    <!--                    <router-link to="/recorder"><span style="top:50%;left:50%;transform: translate(-50%,-50%);background-color: #646464"-->
-                    <!--                                                        class="absolute w-96 h-96 rounded-full z-20"></span></router-link>-->
-                    <!--                    <span style="top:52%;left:52%;transform: translate(-50%,-50%);"-->
-                    <!--                          class="absolute w-96 h-96 rounded-full bg-gray-300 z-10"></span>-->
-                </div>
+    <div style="background-color: #e6e6e6">
+<!--        <div class="desktop">-->
+<!--            <div class="skew-bg flex">-->
+<!--                <div class="w-2/3 relative">-->
+<!--                    <router-link to="/recorder"><img src="/images/click_to_photo.gif"-->
+<!--                                                     style="max-width: 65%; margin-left: 25%;" alt=""></router-link>-->
+<!--                    &lt;!&ndash;                    <router-link to="/recorder"><span style="top:50%;left:50%;transform: translate(-50%,-50%);background-color: #646464"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                                                        class="absolute w-96 h-96 rounded-full z-20"></span></router-link>&ndash;&gt;-->
+<!--                    &lt;!&ndash;                    <span style="top:52%;left:52%;transform: translate(-50%,-50%);"&ndash;&gt;-->
+<!--                    &lt;!&ndash;                          class="absolute w-96 h-96 rounded-full bg-gray-300 z-10"></span>&ndash;&gt;-->
+<!--                </div>-->
 
-                <div style="top:58%;transform: translateY(-50%)"
-                     class="absolute right-0 text-4xl text-right pr-6 leading-relaxed">
-                    <div class="text-gray-500">or</div>
-                    <div>enter</div>
-                    <div>keywords</div>
-                    <input type="text" style="background-color: #C4C4C4"
-                           class="block w-40 my-8 px-4 py-1.5 rounded-full text-xl leading-tight">
-                    <input type="text" style="background-color: #C4C4C4"
-                           class="block w-40 my-8 px-4 py-1.5 rounded-full text-xl leading-tight">
-                    <input type="text" style="background-color: #C4C4C4"
-                           class="block w-40 my-8 px-4 py-1.5 rounded-full text-xl leading-tight">
-                    <div
-                        class="w-14 h-14 bg-white rounded-full p-3.5 flex justify-center items-center shadow-md float-right cursor-pointer hover:opacity-60">
-                        <box-icon class="w-10 h-10" name='right-arrow-alt'></box-icon>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="mobile relative">
+<!--                <div style="top:58%;transform: translateY(-50%)"-->
+<!--                     class="absolute right-0 text-4xl text-right pr-6 leading-relaxed">-->
+<!--                    <div class="text-gray-500">or</div>-->
+<!--                    <div>enter</div>-->
+<!--                    <div>keywords</div>-->
+<!--                    <input type="text" style="background-color: #C4C4C4"-->
+<!--                           class="block w-40 my-8 px-4 py-1.5 rounded-full text-xl leading-tight">-->
+<!--                    <input type="text" style="background-color: #C4C4C4"-->
+<!--                           class="block w-40 my-8 px-4 py-1.5 rounded-full text-xl leading-tight">-->
+<!--                    <input type="text" style="background-color: #C4C4C4"-->
+<!--                           class="block w-40 my-8 px-4 py-1.5 rounded-full text-xl leading-tight">-->
+<!--                    <div-->
+<!--                        class="w-14 h-14 bg-white rounded-full p-3.5 flex justify-center items-center shadow-md float-right cursor-pointer hover:opacity-60">-->
+<!--                        <box-icon class="w-10 h-10" name='right-arrow-alt'></box-icon>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+        <div class="relative">
             <div class="skew-bg-mobile"></div>
             <div style="height: 70vh" class="absolute top-0 left-0 w-full">
-                <!--                <template v-if="preview">-->
-                <!--                    <img :src="preview"  alt=""/>-->
-                <!--                    <p>file name: {{ image.name }}</p>-->
-                <!--                    <p>size: {{ image.size/1024 }}KB</p>-->
-                <!--                </template>-->
                 <label>
-                    <img v-if="!preview" src="/images/click_to_photo.gif" class="w-full p-6 absolute left-12 top-14"
+                    <img v-if="!preview" src="/images/click_to_photo.gif"
+                         style="max-width: 375px"
+                         class="w-full p-6 absolute left-12 top-14"
                          alt="">
                     <span v-else
                           style="top:50%;left:50%;width:26rem;height:26rem;transform: translate(-50%,-50%);background-color: #646464;"
@@ -59,8 +56,6 @@
                            class="absolute bg-black px-20 rounded-full opacity-0 cursor-pointer z-10" ref="file"
                            type="file" accept="image/*" capture="user" @change="previewImg"/>
                 </label>
-                <!--                <span style="top:52%;left:52%;width:30rem;height:30rem;transform: translate(-50%,-50%);"-->
-                <!--                      class="absolute w-96 h-96 rounded-full bg-gray-300 z-10"></span>-->
             </div>
             <div style="margin-top: -65%">
                 <div class="absolute right-0 text-5xl text-right pr-12 leading-tight">
@@ -202,9 +197,10 @@ export default {
 .skew-bg, .skew-bg-mobile {
     width: 100%;
     height: 100vh;
+    min-height: 700px;
     position: relative;
     overflow: hidden;
-    /*調整斜三角顏色 -> background-color: red;*/
+    background-color: #e6e6e6;
 }
 
 .skew-bg:before {
@@ -214,7 +210,7 @@ export default {
     top: 0;
     width: 200%;
     height: 100%;
-    background: white;
+    background: #FDFDFD;
     transform-origin: 100% 0;
     transform: skewX(-35deg);
 }
@@ -226,7 +222,7 @@ export default {
     top: 0;
     width: calc(100% + 150px);
     height: 100%;
-    background: white;
+    background: #FDFDFD;
     transform-origin: 0 0;
     transform: skewY(-30deg);
 }
