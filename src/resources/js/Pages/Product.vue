@@ -4,8 +4,8 @@
                 style="max-width: 400px"
                 :options="swiperOption">
 
-            <swiper-slide v-for="(item, index) in $store.state.products">
-                <product-slide :product="item"/>
+            <swiper-slide v-for="(item, index) in $store.state.products " :key="index">
+                <product-slide :product="item" />
             </swiper-slide>
             <swiper-slide>
                 <product-slide/>

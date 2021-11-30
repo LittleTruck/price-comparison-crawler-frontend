@@ -1908,30 +1908,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-var routes = [{
-  path: '/home',
-  component: function component() {
-    return __webpack_require__.e(/*! import() */ "resources_js_Pages_Home_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Home.vue */ "./resources/js/Pages/Home.vue"));
-  },
-  name: 'home'
-}, {
-  path: '/about',
-  component: function component() {
-    return __webpack_require__.e(/*! import() */ "resources_js_Pages_About_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/About.vue */ "./resources/js/Pages/About.vue"));
-  },
-  name: 'about'
-}, {
-  path: '/recorder',
-  component: function component() {
-    return __webpack_require__.e(/*! import() */ "resources_js_Pages_Recorder_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Recorder.vue */ "./resources/js/Pages/Recorder.vue"));
-  },
-  name: 'recorder'
+var routes = [// {
+//     path: '/home',
+//     component: () => import('../Pages/Home.vue'),
+//     name: 'home'
+// },
+// {
+//     path: '/about',
+//     component: () => import('../Pages/About.vue'),
+//     name: 'about'
+// },
+{
+  path: '/',
+  redirect: '/index'
 }, {
   path: '/index',
   component: function component() {
     return __webpack_require__.e(/*! import() */ "resources_js_Pages_Index_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Index.vue */ "./resources/js/Pages/Index.vue"));
   },
   name: 'index'
+}, {
+  path: '/recorder',
+  component: function component() {
+    return __webpack_require__.e(/*! import() */ "resources_js_Pages_Recorder_vue").then(__webpack_require__.bind(__webpack_require__, /*! ../Pages/Recorder.vue */ "./resources/js/Pages/Recorder.vue"));
+  },
+  name: 'recorder'
 }, {
   path: '/product',
   component: function component() {
@@ -2013,7 +2014,12 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
     products: {},
     brand: "",
     lowest_product: {},
-    discount_product: {}
+    discount_product: {},
+    highest_price: 0,
+    lowest_price: 0,
+    median: 0,
+    normal_price25: 0,
+    normal_price75: 0
   },
   mutations: {
     INCREMENT: function INCREMENT(state) {
@@ -2030,6 +2036,21 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
     },
     SET_BRAND: function SET_BRAND(state, data) {
       state.brand = data;
+    },
+    SET_HIGHEST: function SET_HIGHEST(state, data) {
+      state.highest_price = data;
+    },
+    SET_LOWEST: function SET_LOWEST(state, data) {
+      state.lowest_price = data;
+    },
+    SET_MEDIAN: function SET_MEDIAN(state, data) {
+      state.median = data;
+    },
+    SET_NORMAL25: function SET_NORMAL25(state, data) {
+      state.normal_price25 = data;
+    },
+    SET_NORMAL75: function SET_NORMAL75(state, data) {
+      state.normal_price75 = data;
     }
   },
   actions: {}
@@ -2131,7 +2152,7 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Alata&display=swap);"]);
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@700&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@media (max-width: 639px) {\nhtml, body {\n    font-size: 12px;\n}\n}\n@media (min-width: 640px) and (max-width: 767px) {\nhtml, body {\n    font-size: 14px;\n}\n}\n@media (min-width: 768px) and (max-width: 1023px) {\nhtml, body {\n    font-size: 14px;\n}\n}\n@media (min-width: 1024px) and (max-width: 1279px) {\nhtml, body {\n    font-size: 15px;\n}\n}\n@media (min-width: 1280px) and (max-width: 1535px) {\nhtml, body {\n    font-size: 15px;\n}\n}\n@media (min-width: 1536px) {\nhtml, body {\n    font-size: 18px;\n}\n}\n.mobile {\n  display: none;\n}\n@media (max-width: 639px) {\n.mobile {\n      display: block;\n}\n}\n@media (max-width: 639px) {\n.desktop {\n    display: none;\n}\n}\nbody, html, #app, .app {\n  padding: 0;\n  margin: 0;\n  font-family: 'Alata', 'Noto Sans TC';\n  background-color: #e6e6e6;\n  text-align: center;\n}\nh1 {\n  font-size: 10em;\n}\n.navBar {\n  padding: 5px;\n  background-color: #FFF;\n}\n.navBar_link {\n    display: flex;\n    margin: 0;\n}\n.navBar_link li {\n      margin: 10px;\n      list-style-type: none;\n      font-size: 17px;\n}\n.navBar_link li a {\n        text-decoration: none;\n        color: #555555;\n}\n.about {\n  color: green;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@media (max-width: 639px) {\nhtml, body {\n    font-size: 12px;\n}\n}\n@media (min-width: 640px) and (max-width: 767px) {\nhtml, body {\n    font-size: 14px;\n}\n}\n@media (min-width: 768px) and (max-width: 1023px) {\nhtml, body {\n    font-size: 14px;\n}\n}\n@media (min-width: 1024px) and (max-width: 1279px) {\nhtml, body {\n    font-size: 15px;\n}\n}\n@media (min-width: 1280px) and (max-width: 1535px) {\nhtml, body {\n    font-size: 15px;\n}\n}\n@media (min-width: 1536px) {\nhtml, body {\n    font-size: 18px;\n}\n}\n.mobile {\n  display: none;\n}\n@media (max-width: 639px) {\n.mobile {\n      display: block;\n}\n}\n@media (max-width: 639px) {\n.desktop {\n    display: none;\n}\n}\nbody, html, #app, .app {\n  padding: 0;\n  margin: 0;\n  font-family: 'Alata', 'Noto Sans TC';\n  background-color: #777;\n  text-align: center;\n}\nh1 {\n  font-size: 10em;\n}\n.navBar {\n  padding: 5px;\n  background-color: #FFF;\n}\n.navBar_link {\n    display: flex;\n    margin: 0;\n}\n.navBar_link li {\n      margin: 10px;\n      list-style-type: none;\n      font-size: 17px;\n}\n.navBar_link li a {\n        text-decoration: none;\n        color: #555555;\n}\n.about {\n  color: green;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -20101,8 +20122,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "app" },
-    [_c("Navbar"), _vm._v(" "), _c("router-view")],
+    {
+      staticClass: "app",
+      staticStyle: { "max-width": "400px", margin: "0 auto" }
+    },
+    [_c("router-view")],
     1
   )
 }
@@ -36802,7 +36826,7 @@ var index = {
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_Pages_Home_vue":1,"resources_js_Pages_About_vue":1,"resources_js_Pages_Recorder_vue":1,"resources_js_Pages_Index_vue":1,"resources_js_Pages_Product_vue":1,"resources_js_Pages_Analysis_vue":1,"resources_js_Pages_Analysis_recommend_vue":1,"resources_js_Pages_Analysis_Recommend_discount_vue":1,"resources_js_Pages_Analysis_Recommend_lowest_vue":1,"resources_js_Pages_Analysis_normal_vue":1,"resources_js_Pages_Analysis_Normal_chart_vue":1,"resources_js_Pages_Analysis_Normal_list_vue":1,"resources_js_Components_Navbar_vue":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_Pages_Index_vue":1,"resources_js_Pages_Recorder_vue":1,"resources_js_Pages_Product_vue":1,"resources_js_Pages_Analysis_vue":1,"resources_js_Pages_Analysis_recommend_vue":1,"resources_js_Pages_Analysis_Recommend_discount_vue":1,"resources_js_Pages_Analysis_Recommend_lowest_vue":1,"resources_js_Pages_Analysis_normal_vue":1,"resources_js_Pages_Analysis_Normal_chart_vue":1,"resources_js_Pages_Analysis_Normal_list_vue":1,"resources_js_Components_Navbar_vue":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

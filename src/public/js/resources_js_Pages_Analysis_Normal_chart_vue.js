@@ -60,8 +60,8 @@ __webpack_require__.r(__webpack_exports__);
         name: '正常值',
         type: 'boxPlot',
         data: [{
-          x: '小米無線靜音滑鼠',
-          y: [260, 320, 365, 400, 465]
+          x: this.$store.state.lowest_product.name,
+          y: [this.$store.state.lowest_price, this.$store.state.normal_price25, this.$store.state.median, this.$store.state.normal_price75, this.$store.state.highest_price]
         }]
       } // {
       //     name: '離群值',
@@ -82,53 +82,52 @@ __webpack_require__.r(__webpack_exports__);
             show: false
           }
         },
-        labels: ['Apples', 'Oranges', 'Berries', 'Grapes'],
-        dataLabels: {
-          enabled: true,
-          enabledOnSeries: true,
-          formatter: function formatter(val, _ref) {
-            var seriesIndex = _ref.seriesIndex;
-            return '最高價格：' + val;
-          },
-          textAnchor: 'middle',
-          distributed: false,
-          offsetX: 0,
-          offsetY: 0,
-          style: {
-            fontSize: '14px',
-            fontFamily: 'Helvetica, Arial, sans-serif',
-            fontWeight: 'bold',
-            colors: undefined
-          },
-          background: {
-            enabled: true,
-            foreColor: '#fff',
-            padding: 4,
-            borderRadius: 2,
-            borderWidth: 1,
-            borderColor: '#fff',
-            opacity: 0.9,
-            dropShadow: {
-              enabled: false,
-              top: 1,
-              left: 1,
-              blur: 1,
-              color: '#000',
-              opacity: 0.45
-            }
-          },
-          dropShadow: {
-            enabled: false,
-            top: 1,
-            left: 1,
-            blur: 1,
-            color: '#000',
-            opacity: 0.45
-          }
-        },
+        // labels: ['Apples', 'Oranges', 'Berries', 'Grapes'],
+        // dataLabels: {
+        //     enabled: true,
+        //     enabledOnSeries: true,
+        //     formatter: function (val, {seriesIndex}) {
+        //         return '最高價格：' + val
+        //     },
+        //     textAnchor: 'middle',
+        //     distributed: false,
+        //     offsetX: 0,
+        //     offsetY: 0,
+        //     style: {
+        //         fontSize: '14px',
+        //         fontFamily: 'Helvetica, Arial, sans-serif',
+        //         fontWeight: 'bold',
+        //         colors: undefined
+        //     },
+        //     background: {
+        //         enabled: true,
+        //         foreColor: '#fff',
+        //         padding: 4,
+        //         borderRadius: 2,
+        //         borderWidth: 1,
+        //         borderColor: '#fff',
+        //         opacity: 0.9,
+        //         dropShadow: {
+        //             enabled: false,
+        //             top: 1,
+        //             left: 1,
+        //             blur: 1,
+        //             color: '#000',
+        //             opacity: 0.45
+        //         }
+        //     },
+        //     dropShadow: {
+        //         enabled: false,
+        //         top: 1,
+        //         left: 1,
+        //         blur: 1,
+        //         color: '#000',
+        //         opacity: 0.45
+        //     }
+        // },
         colors: ['#008FFB', '#FEB019'],
         title: {
-          text: 'BoxPlot - Scatter Chart',
+          text: 'BoxPlot',
           align: 'left'
         },
         xaxis: {
@@ -167,7 +166,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.custom-coordinate[data-v-30db2260]  .apexcharts-boxPlot-series{\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.custom-coordinate[data-v-30db2260]  .apexcharts-boxPlot-series {\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -597,7 +596,14 @@ var render = function() {
           }
         }),
         _vm._v(" "),
-        _c("h2", [_vm._v("正常價格：$325 ~ $400")])
+        _c("h2", [
+          _vm._v(
+            "正常價格：$" +
+              _vm._s(_vm.$store.state.normal_price25) +
+              " ~ $" +
+              _vm._s(_vm.$store.state.normal_price75)
+          )
+        ])
       ],
       1
     )

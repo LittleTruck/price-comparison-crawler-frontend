@@ -35,25 +35,24 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "recommend",
-  created: function created() {
-    this.$store.commit("SET_LOWEST_PRODUCT", {
-      "link": "https://www.momoshop.com.tw/goods/GoodsDetail.jsp?i_code=7322479&mdiv=searchEngine&oid=1_8&kw=New%20Balance%20%E7%99%BD%E8%89%B2%20%E9%9E%8B",
-      "discountpercent": 50,
-      "discountprice": 1825,
-      "shop": "momo",
-      "image": "https://og.momoshop.com.tw/1637072843/goodsimg/0007/322/479/7322479_L.jpg",
-      "name": "【NEW BALANCE】NB 輕量慢跑運動鞋_女鞋_白色_W890WO7-B楦 春夏 透氣 運動 休閒 潮流",
-      "rawprice": 3650
-    });
-    this.$store.commit("SET_DISCOUNT_PRODUCT", {
-      "link": "https://www.momoshop.com.tw/goods/GoodsDetail.jsp?i_code=7322479&mdiv=searchEngine&oid=1_8&kw=New%20Balance%20%E7%99%BD%E8%89%B2%20%E9%9E%8B",
-      "discountpercent": 50,
-      "discountprice": 1825,
-      "shop": "momo",
-      "image": "https://og.momoshop.com.tw/1637072843/goodsimg/0007/322/479/7322479_L.jpg",
-      "name": "【NEW BALANCE】NB 輕量慢跑運動鞋_女鞋_白色_W890WO7-B楦 春夏 透氣 運動 休閒 潮流",
-      "rawprice": 3650
-    });
+  created: function created() {// this.$store.commit("SET_LOWEST_PRODUCT",  {
+    //     "link": "https://www.momoshop.com.tw/goods/GoodsDetail.jsp?i_code=7322479&mdiv=searchEngine&oid=1_8&kw=New%20Balance%20%E7%99%BD%E8%89%B2%20%E9%9E%8B",
+    //     "discountpercent": 50,
+    //     "discountprice": 1825,
+    //     "shop": "momo",
+    //     "image": "https://og.momoshop.com.tw/1637072843/goodsimg/0007/322/479/7322479_L.jpg",
+    //     "name": "【NEW BALANCE】NB 輕量慢跑運動鞋_女鞋_白色_W890WO7-B楦 春夏 透氣 運動 休閒 潮流",
+    //     "rawprice": 3650
+    // });
+    // this.$store.commit("SET_DISCOUNT_PRODUCT", {
+    //     "link": "https://www.momoshop.com.tw/goods/GoodsDetail.jsp?i_code=7322479&mdiv=searchEngine&oid=1_8&kw=New%20Balance%20%E7%99%BD%E8%89%B2%20%E9%9E%8B",
+    //     "discountpercent": 50,
+    //     "discountprice": 1825,
+    //     "shop": "momo",
+    //     "image": "https://og.momoshop.com.tw/1637072843/goodsimg/0007/322/479/7322479_L.jpg",
+    //     "name": "【NEW BALANCE】NB 輕量慢跑運動鞋_女鞋_白色_W890WO7-B楦 春夏 透氣 運動 休閒 潮流",
+    //     "rawprice": 3650
+    // });
   }
 });
 

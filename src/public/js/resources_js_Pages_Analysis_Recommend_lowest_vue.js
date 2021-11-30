@@ -39,6 +39,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "lowest"
 });
@@ -146,7 +151,11 @@ var render = function() {
               "span",
               {
                 staticClass:
-                  "bg-green-400 text-white text-lg px-6 py-1.5 rounded-full tracking-widest"
+                  "text-white text-lg px-6 py-1.5 rounded-full tracking-widest",
+                class: {
+                  "bg-red-400": _vm.product.shop == "PChome",
+                  "bg-green-400": _vm.product.shop == "momo"
+                }
               },
               [_vm._v(_vm._s(_vm.$store.state.lowest_product.shop))]
             )

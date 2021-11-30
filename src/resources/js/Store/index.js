@@ -10,6 +10,11 @@ const store = new Vuex.Store({
         brand: "",
         lowest_product: {},
         discount_product: {},
+        highest_price: 0,
+        lowest_price: 0,
+        median: 0,
+        normal_price25: 0,
+        normal_price75: 0,
     },
     mutations: {
         INCREMENT(state) {
@@ -26,6 +31,21 @@ const store = new Vuex.Store({
         },
         SET_BRAND(state, data) {
             state.brand = data
+        },
+        SET_HIGHEST(state, data) {
+            state.highest_price = data
+        },
+        SET_LOWEST(state, data) {
+            state.lowest_price = data
+        },
+        SET_MEDIAN(state, data) {
+            state.median = data
+        },
+        SET_NORMAL25(state, data) {
+            state.normal_price25 = data
+        },
+        SET_NORMAL75(state, data) {
+            state.normal_price75 = data
         }
     },
     actions: {}

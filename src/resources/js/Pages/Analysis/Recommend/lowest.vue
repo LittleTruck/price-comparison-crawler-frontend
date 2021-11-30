@@ -1,8 +1,13 @@
 <template>
-    <div style="max-width: 400px;min-height: 500px" class="w-full flex flex-col justify-around items-center my-8 mx-auto">
+    <div style="max-width: 400px;min-height: 500px"
+         class="w-full flex flex-col justify-around items-center my-8 mx-auto">
         <div>
             <div class="w-full flex justify-end items-center px-8 pr-12">
-                <span class="bg-green-400 text-white text-lg px-6 py-1.5 rounded-full tracking-widest">{{ $store.state.lowest_product.shop }}</span>
+                <span class="text-white text-lg px-6 py-1.5 rounded-full tracking-widest"
+                      :class="{
+                        'bg-red-400'  : product.shop == 'PChome',
+                        'bg-green-400' : product.shop == 'momo'
+                    }">{{ $store.state.lowest_product.shop }}</span>
             </div>
             <div class="w-full flex justify-center items-center px-16">
                 <img :src="$store.state.lowest_product.image">
