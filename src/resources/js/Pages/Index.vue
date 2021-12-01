@@ -1,7 +1,7 @@
 <template>
     <div>
         <clip-loader v-if="loading" style="z-index: 10000000;background-color: rgba(0,0,0,0.7)"
-                     class="loading flex justify-center items-center fixed w-screen h-screen"
+                     class="loading flex justify-center items-center fixed left-0 top-0 w-screen h-screen"
                      color="white" size="100px"></clip-loader>
         <div style="background-color: #e6e6e6">
             <!--        <div class="desktop">-->
@@ -35,8 +35,8 @@
             <!--        </div>-->
             <div class="relative">
                 <div class="skew-bg-mobile"></div>
-                <div style="height: 70vh" class="absolute top-0 left-0 w-full">
-                    <label>
+                <div style="height: 70vh" class="absolute top-0 left-0 w-full overflow-x-hidden">
+                    <label for="pic_input">
                         <img v-if="!preview" src="/images/click_to_photo.gif"
                              style="max-width: 375px"
                              class="w-full p-6 absolute left-12 top-14"
@@ -45,7 +45,7 @@
                               style="top:50%;left:50%;width:26rem;height:26rem;transform: translate(-50%,-50%);background-color: #646464;"
                               class="absolute rounded-full z-10 p-4 overflow-hidden">
                         <div v-if="preview" class="w-full h-full bg-white rounded-full overflow-hidden flex p-8">
-                            <input class="w-full h-full" ref="file" type="file" accept="image/*" capture="user"
+                            <input class="hidden" ref="file" type="file" accept="image/*" capture="user" id="pic_input"
                                    @change="previewImg"/>
                             <img :src="preview">
                         </div>

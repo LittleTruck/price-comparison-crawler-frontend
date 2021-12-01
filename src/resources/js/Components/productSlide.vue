@@ -1,9 +1,6 @@
 <template>
     <div class="w-full h-full overflow-auto flex flex-col justify-evenly items-center">
         <div>
-            <router-link to="/index">
-                <span class="text-white text-xl px-6 py-2 rounded-full tracking-widest bg-blue-400">HOME</span>
-            </router-link>
             <div class="w-full flex justify-between items-center px-8 pr-12">
                 <span class="text-4xl font-bold py-10 px-5">{{ $store.state.brand }}</span>
                 <span class="text-white text-xl px-6 py-2 rounded-full tracking-widest"
