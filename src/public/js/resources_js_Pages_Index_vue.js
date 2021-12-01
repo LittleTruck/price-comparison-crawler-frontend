@@ -123,6 +123,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -136,7 +143,10 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       image: null,
       // headImgSrc: require('@/assets/image/photograph.png')
       loading: false,
-      fullPage: true
+      fullPage: true,
+      brands: "",
+      color: "",
+      tag: ""
     };
   },
   components: {
@@ -258,6 +268,64 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
             }
           }
         }, _callee2);
+      }))();
+    },
+    keywordsPostAnalyze: function keywordsPostAnalyze() {
+      var _this4 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+        var url, recognition;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _this4.$store.commit("SET_BRAND", _this4.brands);
+
+                _this4.loading = true;
+                url = "https://flaskapiserver-env.imacloud.com.tw/api/analyze";
+                recognition = {
+                  keyword: {
+                    brands: [_this4.brands],
+                    color: [_this4.color],
+                    tag: [_this4.tag]
+                  },
+                  detail_information: {// describe: {},
+                    // color_detail: {},
+                    // all_Tag: []
+                  }
+                };
+                axios__WEBPACK_IMPORTED_MODULE_2___default().post("".concat(url), recognition).then(function (res) {
+                  _this4.$store.commit("SET_PRODUCT", res.data.table_normal_decrease);
+
+                  _this4.$store.commit("SET_LOWEST_PRODUCT", res.data.table_recommand_lowest[0]);
+
+                  _this4.$store.commit("SET_DISCOUNT_PRODUCT", res.data.table_recommand_discount[0]);
+
+                  _this4.$store.commit("SET_HIGHEST", res.data.Quartile.highestPrice);
+
+                  _this4.$store.commit("SET_LOWEST", res.data.Quartile.lowestPrice);
+
+                  _this4.$store.commit("SET_MEDIAN", res.data.Quartile.median);
+
+                  _this4.$store.commit("SET_NORMAL25", res.data.Quartile.normalPrice25);
+
+                  _this4.$store.commit("SET_NORMAL75", res.data.Quartile.normalPrice75);
+
+                  _this4.$router.push("/product");
+                })["catch"](function (e) {
+                  alert("抱歉，分析錯誤，請重新上傳圖片。");
+                  _this4.image = null;
+                  _this4.preview = null;
+                })["finally"](function () {
+                  _this4.loading = false;
+                });
+
+              case 5:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
       }))();
     }
   }
@@ -1436,7 +1504,7 @@ var render = function() {
       _vm.loading
         ? _c("clip-loader", {
             staticClass:
-              "loading flex justify-center items-center absolute w-screen h-screen",
+              "loading flex justify-center items-center fixed w-screen h-screen",
             staticStyle: {
               "z-index": "10000000",
               "background-color": "rgba(0,0,0,0.7)"
@@ -1562,31 +1630,87 @@ var render = function() {
             },
             [
               _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.brands,
+                    expression: "brands"
+                  }
+                ],
                 staticClass:
                   "block w-full my-8 mt-0 px-8 py-1.5 rounded-full text-2xl leading-loose",
                 staticStyle: { "background-color": "#C4C4C4" },
-                attrs: { type: "text" }
+                attrs: { type: "text", placeholder: "brand", id: "brands" },
+                domProps: { value: _vm.brands },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.brands = $event.target.value
+                  }
+                }
               }),
               _vm._v(" "),
               _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.color,
+                    expression: "color"
+                  }
+                ],
                 staticClass:
                   "block w-full my-8 mt-0 px-8 py-1.5 rounded-full text-2xl leading-loose",
                 staticStyle: { "background-color": "#C4C4C4" },
-                attrs: { type: "text" }
+                attrs: { type: "text", placeholder: "color", id: "color" },
+                domProps: { value: _vm.color },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.color = $event.target.value
+                  }
+                }
               }),
               _vm._v(" "),
               _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.tag,
+                    expression: "tag"
+                  }
+                ],
                 staticClass:
                   "block w-full my-8 mt-0 px-8 py-1.5 rounded-full text-2xl leading-loose",
                 staticStyle: { "background-color": "#C4C4C4" },
-                attrs: { type: "text" }
+                attrs: {
+                  type: "text",
+                  placeholder: "category",
+                  id: "category"
+                },
+                domProps: { value: _vm.tag },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.tag = $event.target.value
+                  }
+                }
               }),
               _vm._v(" "),
               _c(
                 "button",
                 {
                   staticClass:
-                    "w-full h-14 bg-white rounded-full px-8 py-3.5 flex justify-center items-center text-2xl shadow-md float-right cursor-pointer hover:opacity-60"
+                    "w-full h-14 bg-white rounded-full px-8 py-3.5 flex justify-center items-center text-2xl shadow-md float-right cursor-pointer hover:opacity-60",
+                  on: { click: _vm.keywordsPostAnalyze }
                 },
                 [
                   _vm._v("\n                    Submit\n                    "),

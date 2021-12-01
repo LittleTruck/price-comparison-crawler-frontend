@@ -153,8 +153,10 @@ var render = function() {
                 staticClass:
                   "text-white text-lg px-6 py-1.5 rounded-full tracking-widest",
                 class: {
-                  "bg-red-400": _vm.product.shop == "PChome",
-                  "bg-green-400": _vm.product.shop == "momo"
+                  "bg-red-400":
+                    _vm.$store.state.discount_product.shop == "PChome",
+                  "bg-green-400":
+                    _vm.$store.state.discount_product.shop == "momo"
                 }
               },
               [_vm._v(_vm._s(_vm.$store.state.lowest_product.shop))]

@@ -1,7 +1,7 @@
 <template>
     <div>
         <clip-loader v-if="loading" style="z-index: 10000000;background-color: rgba(0,0,0,0.7)"
-                     class="loading flex justify-center items-center absolute w-screen h-screen"
+                     class="loading flex justify-center items-center fixed w-screen h-screen"
                      color="white" size="100px"></clip-loader>
         <div style="background-color: #e6e6e6">
             <!--        <div class="desktop">-->
@@ -70,12 +70,19 @@
                 </div>
                 <div style="margin-top: 50%" class="relative z-50 flex flex-wrap w-full justify-center px-24 pb-32">
                     <input type="text" style="background-color: #C4C4C4"
-                           class="block w-full my-8 mt-0 px-8 py-1.5 rounded-full text-2xl leading-loose">
+                           class="block w-full my-8 mt-0 px-8 py-1.5 rounded-full text-2xl leading-loose"
+                           placeholder="brand"
+                           id="brands" v-model="brands">
                     <input type="text" style="background-color: #C4C4C4"
-                           class="block w-full my-8 mt-0 px-8 py-1.5 rounded-full text-2xl leading-loose">
+                           class="block w-full my-8 mt-0 px-8 py-1.5 rounded-full text-2xl leading-loose"
+                           placeholder="color"
+                           id="color" v-model="color">
                     <input type="text" style="background-color: #C4C4C4"
-                           class="block w-full my-8 mt-0 px-8 py-1.5 rounded-full text-2xl leading-loose">
+                           class="block w-full my-8 mt-0 px-8 py-1.5 rounded-full text-2xl leading-loose"
+                           placeholder="category"
+                           id="category" v-model="tag">
                     <button
+                        @click="keywordsPostAnalyze"
                         class="w-full h-14 bg-white rounded-full px-8 py-3.5 flex justify-center items-center text-2xl shadow-md float-right cursor-pointer hover:opacity-60">
                         Submit
                         <box-icon class="w-10 h-10" name='right-arrow-alt'></box-icon>
@@ -101,7 +108,10 @@ export default {
             image: null,
             // headImgSrc: require('@/assets/image/photograph.png')
             loading: false,
-            fullPage: true
+            fullPage: true,
+            brands: "",
+            color: "",
+            tag: "",
         }
     },
     components: {
@@ -166,6 +176,46 @@ export default {
         async postAnalyze(recognition) {
             {
                 const url = "https://flaskapiserver-env.imacloud.com.tw/api/analyze";
+                axios
+                    .post(`${url}`, recognition)
+                    .then(res => {
+                        this.$store.commit("SET_PRODUCT", res.data.table_normal_decrease);
+                        this.$store.commit("SET_LOWEST_PRODUCT", res.data.table_recommand_lowest[0]);
+                        this.$store.commit("SET_DISCOUNT_PRODUCT", res.data.table_recommand_discount[0]);
+                        this.$store.commit("SET_HIGHEST", res.data.Quartile.highestPrice);
+                        this.$store.commit("SET_LOWEST", res.data.Quartile.lowestPrice);
+                        this.$store.commit("SET_MEDIAN", res.data.Quartile.median);
+                        this.$store.commit("SET_NORMAL25", res.data.Quartile.normalPrice25);
+                        this.$store.commit("SET_NORMAL75", res.data.Quartile.normalPrice75);
+                        this.$router.push("/product");
+                    })
+                    .catch(e => {
+                        alert("抱歉，分析錯誤，請重新上傳圖片。");
+                        this.image = null;
+                        this.preview = null;
+                    })
+                    .finally(() => {
+                        this.loading = false;
+                    });
+            }
+        },
+        async keywordsPostAnalyze() {
+            {
+                this.$store.commit("SET_BRAND", this.brands);
+                this.loading = true;
+                const url = "https://flaskapiserver-env.imacloud.com.tw/api/analyze";
+                let recognition = {
+                    keyword: {
+                        brands: [this.brands],
+                        color: [this.color],
+                        tag: [this.tag]
+                    },
+                    detail_information: {
+                        // describe: {},
+                        // color_detail: {},
+                        // all_Tag: []
+                    }
+                }
                 axios
                     .post(`${url}`, recognition)
                     .then(res => {

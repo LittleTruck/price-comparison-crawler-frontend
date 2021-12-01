@@ -5,8 +5,8 @@
             <div class="w-full flex justify-end items-center px-8 pr-12">
                 <span class="text-white text-lg px-6 py-1.5 rounded-full tracking-widest"
                       :class="{
-                        'bg-red-400'  : product.shop == 'PChome',
-                        'bg-green-400' : product.shop == 'momo'
+                        'bg-red-400'  : $store.state.discount_product.shop == 'PChome',
+                        'bg-green-400' : $store.state.discount_product.shop == 'momo'
                     }">{{ $store.state.discount_product.shop }}</span>
             </div>
             <div class="w-full flex justify-center items-center px-16">

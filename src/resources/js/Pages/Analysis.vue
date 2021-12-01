@@ -1,5 +1,8 @@
 <template>
     <div style="background-color: #404040;" class="flex flex-wrap w-full h-screen justify-center overflow-hidden text-white">
+        <router-link to="/index">
+            <span class="text-white text-xl px-6 py-2 rounded-full tracking-widest bg-blue-400">HOME</span>
+        </router-link>
         <div style="max-width: 400px" class="w-full p-10 text-left text-3xl leading-loose tracking-wide">
             <div class="h-24 overflow-auto text-xl leading-snug tracking-normal">{{ $store.state.discount_product.name }}</div>
             <div class="w-full flex justify-between mt-4">

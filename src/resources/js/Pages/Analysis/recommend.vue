@@ -23,6 +23,7 @@ import 'boxicons'
 export default {
     name: "recommend",
     created() {
+
         // this.$store.commit("SET_LOWEST_PRODUCT",  {
         //     "link": "https://www.momoshop.com.tw/goods/GoodsDetail.jsp?i_code=7322479&mdiv=searchEngine&oid=1_8&kw=New%20Balance%20%E7%99%BD%E8%89%B2%20%E9%9E%8B",
         //     "discountpercent": 50,
