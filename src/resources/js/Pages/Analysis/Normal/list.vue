@@ -18,7 +18,7 @@
                     <td style="width:15%;">${{ item.rawprice }}</td>
                     <td style="width:20%;color:red">${{ item.discountprice }}</td>
                     <td style="width:15%;color:green">-{{ 100 - item.discountpercent }}%</td>
-                    <td style="width:20%;" ><img style="width: 10rem;padding: 0.75rem" :src="item.shop == 'PChome' ? '/images/pchome.png' :'/images/momo.png'">
+                    <td style="width:20%;" ><img style="width: 10rem;padding: 0.85rem" :src="item.shop == 'PChome' ? '/images/pchome.png' :'/images/momo.jpg'">
                     </td>
                 </tr>
                 </tbody>

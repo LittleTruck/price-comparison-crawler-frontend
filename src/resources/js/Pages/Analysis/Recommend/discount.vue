@@ -20,13 +20,15 @@
             <span class="w-full my-4 text-2xl">原價
               <br>${{ $store.state.discount_product.rawprice }}
                 <br>
-                <span class="text-green-400">-{{ 100-$store.state.discount_product.discountpercent }}%</span>
+                <span class="text-green-400">-{{ 100 - $store.state.discount_product.discountpercent }}%</span>
             </span>
         </div>
         <div class="flex flex-col mt-4">
-            <button style="border-radius: 2.5rem 0 2.5rem 0"
-                    class="w-60 bg-black text-white py-6 text-xl">BUY NOW
-            </button>
+            <a :href="$store.state.discount_product.link" target="_blank">
+                <button style="border-radius: 2.5rem 0 2.5rem 0"
+                        class="w-60 bg-black text-white py-6 text-xl">BUY NOW
+                </button>
+            </a>
         </div>
     </div>
 </template>

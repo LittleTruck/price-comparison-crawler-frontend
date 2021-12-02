@@ -44,6 +44,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "discount",
   created: function created() {}
@@ -207,27 +209,31 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _vm._m(0)
+      _c("div", { staticClass: "flex flex-col mt-4" }, [
+        _c(
+          "a",
+          {
+            attrs: {
+              href: _vm.$store.state.discount_product.link,
+              target: "_blank"
+            }
+          },
+          [
+            _c(
+              "button",
+              {
+                staticClass: "w-60 bg-black text-white py-6 text-xl",
+                staticStyle: { "border-radius": "2.5rem 0 2.5rem 0" }
+              },
+              [_vm._v("BUY NOW\n            ")]
+            )
+          ]
+        )
+      ])
     ]
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "flex flex-col mt-4" }, [
-      _c(
-        "button",
-        {
-          staticClass: "w-60 bg-black text-white py-6 text-xl",
-          staticStyle: { "border-radius": "2.5rem 0 2.5rem 0" }
-        },
-        [_vm._v("BUY NOW\n        ")]
-      )
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

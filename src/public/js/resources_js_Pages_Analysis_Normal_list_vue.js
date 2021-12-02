@@ -62,7 +62,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\ntable[data-v-23060d9c],\ntd[data-v-23060d9c] {\n    border: 1px solid #333;\n}\nthead[data-v-23060d9c],\ntfoot[data-v-23060d9c] {\n    background-color: #333;\n    color: #fff;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\ntd[data-v-23060d9c] {\n    border-top: 1px solid rgba(0,0,0,0.1);\n    border-bottom: 1px solid rgba(0,0,0,0.1);\n}\ntd[data-v-23060d9c]:first-child{\n    border-top: none;\n}\ntd[data-v-23060d9c]:last-child{\n    border-bottom: none;\n}\nthead[data-v-23060d9c],\ntfoot[data-v-23060d9c] {\n    background-color: #333;\n    color: #fff;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -196,11 +196,11 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "p-10" }, [
+  return _c("div", { staticClass: "px-5 py-8" }, [
     _c(
       "div",
       {
-        staticClass: "custom-coordinate relative p-1 rounded-3xl",
+        staticClass: "custom-coordinate relative rounded-2xl overflow-hidden",
         staticStyle: { "box-shadow": "2px 2px 15px 5px #EDEBEB" },
         attrs: { id: "chart" }
       },
@@ -213,7 +213,10 @@ var render = function() {
             _vm._l(_vm.$store.state.products, function(item, key) {
               return _c("tr", { key: key }, [
                 _c("td", { staticStyle: { width: "30%" } }, [
-                  _c("img", { attrs: { width: "90vw", src: item.image } })
+                  _c("img", {
+                    staticStyle: { width: "10rem", padding: "0.75rem" },
+                    attrs: { src: item.image }
+                  })
                 ]),
                 _vm._v(" "),
                 _c("td", { staticStyle: { width: "15%" } }, [
@@ -228,14 +231,14 @@ var render = function() {
                   _vm._v("-" + _vm._s(100 - item.discountpercent) + "%")
                 ]),
                 _vm._v(" "),
-                _c("td", { staticStyle: { width: "15%" } }, [
+                _c("td", { staticStyle: { width: "20%" } }, [
                   _c("img", {
+                    staticStyle: { width: "10rem", padding: "0.85rem" },
                     attrs: {
-                      width: "40vw",
                       src:
                         item.shop == "PChome"
                           ? "/images/pchome.png"
-                          : "/images/momo.png"
+                          : "/images/momo.jpg"
                     }
                   })
                 ])
@@ -253,17 +256,17 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("thead", [
+    return _c("thead", { staticClass: "rounded-md py-2" }, [
       _c("tr", [
-        _c("th"),
+        _c("th", { staticClass: "rounded-tl-xl" }),
         _vm._v(" "),
-        _c("th", [_vm._v("原價")]),
+        _c("th", { staticClass: "py-2" }, [_vm._v("原價")]),
         _vm._v(" "),
         _c("th", [_vm._v("特價")]),
         _vm._v(" "),
         _c("th", [_vm._v("折數")]),
         _vm._v(" "),
-        _c("th", [_vm._v("電商")])
+        _c("th", { staticClass: "rounded-tr-xl" }, [_vm._v("電商")])
       ])
     ])
   }

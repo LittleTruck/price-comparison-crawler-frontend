@@ -169,7 +169,7 @@ export default {
                         this.postAnalyze(result);
                     })
                     .catch(e => {
-                        alert("抱歉，分析錯誤，請重新上傳圖片。");
+                        alert("抱歉，圖片辨識錯誤，請重新上傳其他圖片。");
                     });
             }
         },
@@ -190,7 +190,7 @@ export default {
                         this.$router.push("/product");
                     })
                     .catch(e => {
-                        alert("抱歉，分析錯誤，請重新上傳圖片。");
+                        alert("抱歉，分析錯誤，請重新上傳其他圖片。");
                         this.image = null;
                         this.preview = null;
                     })
@@ -230,7 +230,7 @@ export default {
                         this.$router.push("/product");
                     })
                     .catch(e => {
-                        alert("抱歉，分析錯誤，請重新上傳圖片。");
+                        alert("抱歉，分析錯誤，請重新輸入其他關鍵字。");
                         this.image = null;
                         this.preview = null;
                     })

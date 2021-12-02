@@ -27,6 +27,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Analysis"
 });
@@ -187,20 +188,26 @@ var render = function() {
     "div",
     {
       staticClass:
-        "flex flex-wrap w-full h-screen justify-center overflow-hidden text-white",
+        "flex flex-wrap relative w-full h-screen justify-center overflow-hidden text-white",
       staticStyle: { "background-color": "#404040" }
     },
     [
-      _c("router-link", { attrs: { to: "/index" } }, [
-        _c(
-          "span",
-          {
-            staticClass:
-              "text-white text-xl px-6 py-2 rounded-full tracking-widest bg-blue-400"
-          },
-          [_vm._v("HOME")]
-        )
-      ]),
+      _c(
+        "router-link",
+        {
+          staticClass:
+            "absolute flex justify-center items-center rounded-full w-12 h-12 left-4 top-2 z-50",
+          staticStyle: { "box-shadow": "rgba(0, 0, 0, 0.8) 0px 5px 10px" },
+          attrs: { to: "/index" }
+        },
+        [
+          _c("box-icon", {
+            staticClass: "w-7 h-7",
+            attrs: { type: "solid", color: "white", name: "home" }
+          })
+        ],
+        1
+      ),
       _vm._v(" "),
       _c(
         "div",
@@ -214,7 +221,7 @@ var render = function() {
             "div",
             {
               staticClass:
-                "h-24 overflow-auto text-xl leading-snug tracking-normal"
+                "h-24 overflow-auto pt-4 text-xl leading-snug tracking-normal"
             },
             [_vm._v(_vm._s(_vm.$store.state.discount_product.name))]
           ),

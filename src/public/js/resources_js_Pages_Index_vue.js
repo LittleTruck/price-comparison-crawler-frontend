@@ -215,7 +215,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                   _this2.postAnalyze(result);
                 })["catch"](function (e) {
-                  alert("抱歉，分析錯誤，請重新上傳圖片。");
+                  alert("抱歉，圖片辨識錯誤，請重新上傳其他圖片。");
                 });
 
               case 6:
@@ -255,7 +255,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                   _this3.$router.push("/product");
                 })["catch"](function (e) {
-                  alert("抱歉，分析錯誤，請重新上傳圖片。");
+                  alert("抱歉，分析錯誤，請重新上傳其他圖片。");
                   _this3.image = null;
                   _this3.preview = null;
                 })["finally"](function () {
@@ -313,7 +313,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                   _this4.$router.push("/product");
                 })["catch"](function (e) {
-                  alert("抱歉，分析錯誤，請重新上傳圖片。");
+                  alert("抱歉，分析錯誤，請重新輸入其他關鍵字。");
                   _this4.image = null;
                   _this4.preview = null;
                 })["finally"](function () {
@@ -1504,7 +1504,7 @@ var render = function() {
       _vm.loading
         ? _c("clip-loader", {
             staticClass:
-              "loading flex justify-center items-center fixed w-screen h-screen",
+              "loading flex justify-center items-center fixed left-0 top-0 w-screen h-screen",
             staticStyle: {
               "z-index": "10000000",
               "background-color": "rgba(0,0,0,0.7)"
@@ -1520,11 +1520,11 @@ var render = function() {
           _c(
             "div",
             {
-              staticClass: "absolute top-0 left-0 w-full",
+              staticClass: "absolute top-0 left-0 w-full overflow-x-hidden",
               staticStyle: { height: "70vh" }
             },
             [
-              _c("label", [
+              _c("label", { attrs: { for: "pic_input" } }, [
                 !_vm.preview
                   ? _c("img", {
                       staticClass: "w-full p-6 absolute left-12 top-14",
@@ -1556,11 +1556,12 @@ var render = function() {
                               [
                                 _c("input", {
                                   ref: "file",
-                                  staticClass: "w-full h-full",
+                                  staticClass: "hidden",
                                   attrs: {
                                     type: "file",
                                     accept: "image/*",
-                                    capture: "user"
+                                    capture: "user",
+                                    id: "pic_input"
                                   },
                                   on: { change: _vm.previewImg }
                                 }),
